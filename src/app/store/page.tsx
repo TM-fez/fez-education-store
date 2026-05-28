@@ -1,4 +1,4 @@
-import { Suspense } from "next";
+import { Suspense } from "react";
 import { products, categories } from "@/lib/data";
 import { ProductCard } from "@/components/store/product-card";
 import { CategoryFilter } from "@/components/store/category-filter";
