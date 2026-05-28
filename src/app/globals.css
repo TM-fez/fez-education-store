@@ -39,11 +39,17 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Glassmorphism utility */
+/* Executive Corporate Utilities */
+.corporate-card {
+  background: var(--color-dark-800);
+  border: 1px solid var(--color-dark-600);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
 .glass {
-  background: light-dark(rgba(255, 255, 255, 0.7), rgba(18, 24, 36, 0.7));
-  backdrop-filter: blur(12px);
-  border: 1px solid var(--border);
+  /* Legacy alias pointing to corporate card to preserve layout safely */
+  background: var(--color-dark-800);
+  border: 1px solid var(--color-dark-600);
 }
 
 h1, h2, h3, h4, h5, h6 {

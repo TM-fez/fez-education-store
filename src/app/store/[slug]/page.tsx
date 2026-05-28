@@ -1,13 +1,13 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { ArrowLeft, BookOpen, CheckCircle2, ShieldCheck, Download } from "lucide-react";
-import { getProductBySlug, getCategoryById } from "@/lib/data";
+import { ArrowLeft, CheckCircle2, ShieldCheck, FileText, Briefcase } from "lucide-react";
+import { getProductBySlug } from "@/lib/data";
 
-interface ProductPageProps {
+export default async function ProductPage({
+  params,
+}: {
   params: Promise<{ slug: string }>;
-}
-
-export default async function ProductPage({ params }: ProductPageProps) {
+}) {
   const resolvedParams = await params;
   const product = getProductBySlug(resolvedParams.slug);
 
@@ -15,95 +15,89 @@ export default async function ProductPage({ params }: ProductPageProps) {
     notFound();
   }
 
-  const category = getCategoryById(product.category_id);
-
   return (
-    <div className="flex-1 bg-[var(--background)]">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8 py-8 md:py-12">
+    <div className="flex-1 bg-[var(--color-dark-900)] py-12">
+      <div className="mx-auto max-w-5xl px-6 lg:px-8">
         <Link 
           href="/store" 
-          className="inline-flex items-center gap-2 text-sm font-medium text-[var(--foreground)]/60 hover:text-[var(--foreground)] transition-colors mb-8"
+          className="inline-flex items-center gap-2 text-sm font-medium text-gray-400 hover:text-white transition-colors mb-8"
         >
           <ArrowLeft className="w-4 h-4" />
-          Back to Catalog
+          Back to Resource Store
         </Link>
 
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
-          {/* Left Column - Premium Preview */}
-          <div className="relative aspect-[4/3] lg:aspect-square w-full rounded-3xl overflow-hidden glass border-[var(--color-brand-500)]/20 shadow-2xl flex items-center justify-center">
-            <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-brand-900)]/40 to-transparent pointer-events-none" />
-            <BookOpen className="w-32 h-32 text-[var(--color-brand-500)]/40" />
+        <div className="grid md:grid-cols-[2fr_1fr] gap-12">
+          {/* Main Content */}
+          <div>
+            <h1 className="text-3xl md:text-5xl font-heading font-bold mb-6 text-white leading-tight">
+              {product.title}
+            </h1>
             
-            <div className="absolute bottom-6 left-6 right-6 p-6 rounded-2xl bg-[var(--background)]/80 backdrop-blur-xl border border-[var(--border)]">
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-[var(--color-brand-500)]/10 flex items-center justify-center text-[var(--color-brand-500)]">
-                  <Download className="w-6 h-6" />
-                </div>
-                <div>
-                  <p className="font-heading font-semibold text-sm">Instant PDF Download</p>
-                  <p className="text-xs text-[var(--foreground)]/60">Secure, encrypted delivery</p>
-                </div>
+            <p className="text-lg text-gray-300 mb-8 leading-relaxed">
+              {product.description}
+            </p>
+
+            <div className="corporate-card p-8 mb-8">
+              <h2 className="text-xl font-heading font-bold mb-6 text-white flex items-center gap-2">
+                <Briefcase className="w-5 h-5 text-gray-400" />
+                Key Workplace Outcomes
+              </h2>
+              <ul className="space-y-4">
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-white shrink-0 mt-0.5" />
+                  <span className="text-gray-300">Implement immediately actionable strategies in your workplace.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-white shrink-0 mt-0.5" />
+                  <span className="text-gray-300">Align team operations with standardized best practices.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-white shrink-0 mt-0.5" />
+                  <span className="text-gray-300">Mitigate operational risks specific to the SADC region.</span>
+                </li>
+              </ul>
+            </div>
+            
+            <div className="mt-8">
+              <h2 className="text-xl font-heading font-bold mb-4 text-white">Resource Format</h2>
+              <div className="flex items-center gap-3 text-gray-400">
+                <FileText className="w-5 h-5" />
+                <span>Comprehensive PDF Guide & Executive Toolkit</span>
               </div>
             </div>
           </div>
 
-          {/* Right Column - Product Details */}
-          <div className="flex flex-col pt-4 lg:pt-8">
-            <div className="mb-8">
-              <span className="inline-block px-3 py-1 rounded-full bg-[var(--color-brand-500)]/10 text-[var(--color-brand-500)] text-sm font-medium mb-4">
-                {category?.name}
-              </span>
-              <h1 className="text-4xl md:text-5xl font-heading font-bold tracking-tight mb-4 text-balance">
-                {product.title}
-              </h1>
-              <div className="flex items-end gap-4 mb-6">
-                <span className="text-5xl font-heading font-bold text-[var(--color-brand-500)]">
-                  P{product.price.toFixed(2)}
-                </span>
-                <span className="text-[var(--foreground)]/50 pb-2 text-sm font-medium uppercase tracking-widest">
-                  Botswana Pula
-                </span>
+          {/* Sticky Procurement Panel */}
+          <div className="relative">
+            <div className="sticky top-24 corporate-card p-8">
+              <div className="text-sm font-bold text-gray-400 uppercase tracking-widest mb-2">
+                Procurement
               </div>
-              <p className="text-lg text-[var(--foreground)]/80 leading-relaxed text-pretty">
-                {product.description}
+              <div className="text-4xl font-bold text-white mb-6">
+                P{product.price.toFixed(2)}
+              </div>
+              
+              <Link 
+                href={`/checkout?product=${product.id}`}
+                className="w-full inline-flex items-center justify-center gap-2 bg-white text-[var(--color-dark-900)] py-4 rounded-sm font-bold text-lg hover:bg-gray-100 transition-colors mb-4"
+              >
+                Procure Resource
+              </Link>
+              
+              <p className="text-sm text-center text-gray-500 mb-6">
+                Instant access upon administrative verification.
               </p>
-            </div>
 
-            <div className="space-y-4 mb-10">
-              <h3 className="font-heading font-semibold text-lg">What you'll receive:</h3>
-              <ul className="space-y-3">
-                {[
-                  "Comprehensive training module (PDF format)",
-                  "Practical templates and checklists",
-                  "Lifetime access to future updates",
-                  "Actionable strategies for local implementation"
-                ].map((item, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-[var(--color-brand-500)] shrink-0 mt-0.5" />
-                    <span className="text-[var(--foreground)]/80">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="bg-[var(--card)] border border-[var(--border)] rounded-2xl p-6 mb-8">
-              <div className="flex items-start gap-4">
-                <ShieldCheck className="w-6 h-6 text-emerald-500 shrink-0" />
-                <div>
-                  <h4 className="font-heading font-semibold text-sm mb-1">Secure Botswana Checkout</h4>
-                  <p className="text-xs text-[var(--foreground)]/60 leading-relaxed">
-                    We accept manual bank transfers (FNB, Absa, Stanbic) and Orange Money. Your purchase will be verified by our team.
-                  </p>
+              <div className="space-y-4 pt-6 border-t border-gray-700">
+                <div className="flex items-start gap-3">
+                  <ShieldCheck className="w-5 h-5 text-gray-400 shrink-0" />
+                  <div>
+                    <h4 className="text-sm font-semibold text-white">Secure Transaction</h4>
+                    <p className="text-xs text-gray-400 mt-1">Verified offline payments via FNB or Orange Money.</p>
+                  </div>
                 </div>
               </div>
             </div>
-
-            <Link
-              href={`/checkout?product=${product.id}`}
-              className="w-full flex items-center justify-center gap-2 bg-[var(--foreground)] text-[var(--background)] px-8 py-5 rounded-full font-medium text-lg hover:scale-[1.02] transition-transform shadow-[0_0_40px_-10px_var(--color-brand-500)]"
-            >
-              Proceed to Checkout
-            </Link>
           </div>
         </div>
       </div>

@@ -1,43 +1,41 @@
 import Link from "next/link";
-import { ArrowRight, BookOpen } from "lucide-react";
-import type { Product } from "@/lib/data";
-import { getCategoryById } from "@/lib/data";
+import { Product, getCategoryById } from "@/lib/data";
+import { ArrowRight, BookText } from "lucide-react";
 
-interface ProductCardProps {
-  product: Product;
-}
-
-export function ProductCard({ product }: ProductCardProps) {
+export function ProductCard({ product }: { product: Product }) {
   const category = getCategoryById(product.category_id);
-
+  
   return (
-    <Link href={`/store/${product.slug}`} className="group block h-full">
-      <div className="glass h-full flex flex-col rounded-2xl overflow-hidden border-[var(--border)] group-hover:border-[var(--color-brand-500)]/50 transition-all duration-300 group-hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] group-hover:-translate-y-1">
-        {/* Thumbnail Placeholder */}
-        <div className="aspect-[4/3] w-full bg-[var(--color-dark-800)] border-b border-[var(--border)] flex items-center justify-center relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-tr from-[var(--color-brand-900)]/20 to-transparent z-0" />
-          <BookOpen className="w-12 h-12 text-[var(--foreground)]/20 z-10 group-hover:scale-110 transition-transform duration-500" />
-          <div className="absolute top-4 right-4 z-10">
-            <span className="inline-flex items-center rounded-full bg-[var(--background)]/80 backdrop-blur-md px-2.5 py-1 text-xs font-medium text-[var(--foreground)] border border-[var(--border)]">
-              {category?.name}
-            </span>
+    <Link href={`/store/${product.slug}`} className="block h-full group">
+      <div className="corporate-card flex flex-col h-full hover:border-gray-400 transition-colors">
+        <div className="p-6 flex-1 flex flex-col">
+          <div className="flex justify-between items-start mb-4">
+            <div className="w-10 h-10 bg-gray-800 text-gray-300 rounded-sm flex items-center justify-center border border-gray-700">
+              <BookText className="w-5 h-5" />
+            </div>
+            {category && (
+              <span className="text-xs font-semibold text-gray-400 bg-gray-800 px-2 py-1 rounded-sm border border-gray-700">
+                {category.name}
+              </span>
+            )}
           </div>
-        </div>
-        
-        {/* Content */}
-        <div className="p-6 flex flex-col flex-1">
-          <h3 className="font-heading font-semibold text-xl mb-2 text-[var(--foreground)] group-hover:text-[var(--color-brand-500)] transition-colors line-clamp-2">
+          
+          <h3 className="text-lg font-heading font-semibold text-white mb-2 line-clamp-2 group-hover:text-gray-300 transition-colors">
             {product.title}
           </h3>
-          <p className="text-[var(--foreground)]/70 text-sm leading-relaxed mb-6 line-clamp-3">
-            {product.short_description}
-          </p>
           
-          <div className="mt-auto flex items-center justify-between pt-4 border-t border-[var(--border)]/50">
-            <span className="text-xl font-heading font-bold text-[var(--foreground)]">
+          <div className="mt-2 mb-6">
+            <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1">Workplace Outcome</p>
+            <p className="text-sm text-gray-300 line-clamp-3">
+              {product.short_description}
+            </p>
+          </div>
+          
+          <div className="mt-auto pt-6 border-t border-gray-700 flex items-center justify-between">
+            <span className="text-xl font-bold text-white">
               P{product.price.toFixed(2)}
             </span>
-            <div className="flex items-center gap-2 text-sm font-medium text-[var(--color-brand-500)]">
+            <div className="inline-flex items-center gap-1.5 text-sm font-semibold text-gray-400 group-hover:text-white transition-colors">
               View Details
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </div>

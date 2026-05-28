@@ -4,34 +4,31 @@ import { ProductCard } from "@/components/store/product-card";
 import { CategoryFilter } from "@/components/store/category-filter";
 
 interface StorePageProps {
-  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+  searchParams: Promise<{ category?: string }>;
 }
 
 export default async function StorePage({ searchParams }: StorePageProps) {
   const resolvedParams = await searchParams;
-  const categorySlug = typeof resolvedParams.category === 'string' ? resolvedParams.category : undefined;
-  
-  const categoryId = categorySlug 
-    ? categories.find(c => c.slug === categorySlug)?.id 
-    : undefined;
+  const activeCategory = resolvedParams.category;
 
-  const filteredProducts = categoryId 
-    ? products.filter(p => p.category_id === categoryId)
+  const filteredProducts = activeCategory
+    ? products.filter((p) => p.category_id === activeCategory)
     : products;
 
   return (
-    <div className="flex-1 bg-[var(--background)]">
-      {/* Store Header */}
-      <section className="pt-12 pb-8 border-b border-[var(--border)] bg-[var(--card)]/30">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <h1 className="text-4xl md:text-5xl font-heading font-bold tracking-tight mb-4 text-[var(--foreground)]">
-            Digital Courses
-          </h1>
-          <p className="text-lg text-[var(--foreground)]/70 max-w-2xl text-balance">
-            Premium, downloadable training materials built specifically to accelerate your career in the African corporate sector.
-          </p>
+    <div className="flex-1 bg-[var(--color-dark-900)] py-12 border-b border-[var(--color-dark-600)]">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+          <div>
+            <h1 className="text-3xl md:text-4xl font-heading font-bold mb-4 text-white">
+              Training Resource Store
+            </h1>
+            <p className="text-gray-400 text-lg max-w-2xl">
+              Equip your teams with premium, outcome-driven professional development materials and practical implementation guides.
+            </p>
+          </div>
         </div>
-      </section>
+      </div>
 
       {/* Catalog Section */}
       <section className="py-12 md:py-16">
