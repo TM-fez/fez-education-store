@@ -100,50 +100,56 @@ export default async function ProductPage({
             </div>
           </div>
 
-          {/* Sticky Procurement Panel */}
+          {/* Sticky Unified Procurement & Implementation Panel */}
           <div className="relative space-y-6">
-            <div className="sticky top-24 corporate-card p-8">
-              <div className="text-sm font-bold text-gray-400 uppercase tracking-widest mb-2">
-                Procurement
-              </div>
-              <div className="text-4xl font-bold text-white mb-6">
-                P{product.price.toFixed(2)}
+            <div className="sticky top-24 corporate-card p-8 bg-[var(--color-dark-900)] border border-[var(--color-dark-600)] shadow-xl">
+              <div className="text-sm font-bold text-gray-400 uppercase tracking-widest mb-6 border-b border-[var(--color-dark-600)] pb-4">
+                Procurement & Implementation
               </div>
               
-              <Link 
-                href={`/checkout?product=${product.id}`}
-                className="w-full inline-flex items-center justify-center gap-2 bg-white text-[var(--color-dark-900)] py-4 rounded-sm font-bold text-lg hover:bg-gray-100 transition-colors mb-4"
-              >
-                Procure Resource
-              </Link>
-              
-              <p className="text-sm text-center text-gray-500 mb-6">
-                Instant access upon administrative verification.
-              </p>
+              {/* Primary Action: Direct Purchase */}
+              <div className="mb-8">
+                <div className="flex items-end justify-between mb-4">
+                  <span className="text-sm text-gray-400 font-medium">Digital Resource</span>
+                  <span className="text-3xl font-bold text-white">P{product.price.toFixed(2)}</span>
+                </div>
+                
+                <Link 
+                  href={`/checkout?product=${product.id}`}
+                  className="w-full inline-flex items-center justify-center gap-2 bg-white text-[var(--color-dark-900)] py-4 rounded-sm font-bold text-lg hover:bg-gray-100 transition-colors shadow-lg"
+                >
+                  Purchase Resource
+                </Link>
+                <p className="text-xs text-center text-gray-500 mt-3">
+                  Instant access upon administrative verification.
+                </p>
+              </div>
 
-              <div className="space-y-4 pt-6 border-t border-gray-700">
+              {/* Secondary Action: Corporate Training */}
+              <div className="pt-8 border-t border-[var(--color-dark-600)]">
+                <h4 className="text-sm font-bold text-emerald-500 uppercase tracking-wider mb-2">Corporate Implementation</h4>
+                <h3 className="text-lg font-heading font-bold text-white mb-3">Need this for your entire team?</h3>
+                <p className="text-sm text-gray-400 mb-6 leading-relaxed">
+                  We facilitate customized corporate workshops based on this framework. Transform your workforce rapidly with expert-led training sessions.
+                </p>
+                <Link 
+                  href="/contact"
+                  className="w-full inline-flex items-center justify-center gap-2 bg-transparent border border-gray-500 text-gray-300 py-3 rounded-sm font-semibold hover:border-emerald-500 hover:text-emerald-400 transition-colors"
+                >
+                  Request Corporate Training Proposal
+                </Link>
+              </div>
+
+              {/* Trust Signals */}
+              <div className="space-y-4 pt-8 mt-8 border-t border-[var(--color-dark-600)]">
                 <div className="flex items-start gap-3">
-                  <ShieldCheck className="w-5 h-5 text-gray-400 shrink-0" />
+                  <ShieldCheck className="w-5 h-5 text-gray-500 shrink-0" />
                   <div>
-                    <h4 className="text-sm font-semibold text-white">Secure Transaction</h4>
-                    <p className="text-xs text-gray-400 mt-1">Verified offline payments via FNB or Orange Money.</p>
+                    <h4 className="text-sm font-semibold text-gray-300">Secure Transaction</h4>
+                    <p className="text-xs text-gray-500 mt-1">Verified offline payments via FNB or Orange Money.</p>
                   </div>
                 </div>
               </div>
-            </div>
-
-            {/* B2B Lead Gen Panel */}
-            <div className="corporate-card p-8 bg-[var(--color-dark-800)] border-l-4 border-l-emerald-500">
-              <h3 className="text-xl font-heading font-bold text-white mb-3">Need this for your entire team?</h3>
-              <p className="text-sm text-gray-400 mb-6 leading-relaxed">
-                We facilitate customized corporate workshops based on this framework. Transform your workforce rapidly with expert-led training sessions.
-              </p>
-              <Link 
-                href="/contact"
-                className="w-full inline-flex items-center justify-center gap-2 bg-transparent border border-emerald-500/50 text-white py-3.5 rounded-sm font-semibold hover:bg-emerald-500/10 transition-colors"
-              >
-                Request Training Proposal
-              </Link>
             </div>
           </div>
         </div>

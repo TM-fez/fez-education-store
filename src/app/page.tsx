@@ -57,49 +57,82 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CORPORATE TRAINING SERVICES & AREAS - MOVED UP TO PRIORITIZE SALES */}
+      {/* TWO WAYS TO WORK WITH FEZ EDUCATION */}
       <section className="py-24 bg-[var(--color-dark-800)] border-b border-[var(--color-dark-600)] relative overflow-hidden">
         <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <h2 className="text-sm font-bold text-emerald-500 tracking-widest uppercase mb-3">Corporate Training Services</h2>
-              <p className="text-3xl md:text-4xl font-heading font-bold text-white mb-6">Your Partner in Operational Excellence</p>
-              <p className="text-gray-300 text-lg leading-relaxed mb-8">
-                We design and deliver high-impact corporate training programs that solve critical business challenges. We don't just teach theory; we equip your workforce with the practical skills required to drive measurable performance improvements.
+          <div className="mb-16 text-center max-w-3xl mx-auto">
+            <h2 className="text-sm font-bold text-gray-400 tracking-widest uppercase mb-3">Partnership Pathways</h2>
+            <p className="text-3xl md:text-4xl font-heading font-bold text-white mb-4">Two Ways To Work With Fez Education</p>
+            <p className="text-gray-400 text-lg">We provide flexible engagement models designed to support both immediate operational needs and long-term organizational transformation.</p>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
+            {/* Option 1: Corporate Training Services (Premium Offering) */}
+            <div className="corporate-card p-10 bg-[var(--color-dark-900)] border-emerald-500/30 shadow-[0_0_30px_rgba(16,185,129,0.1)] flex flex-col h-full relative overflow-hidden">
+              <div className="absolute top-0 right-0 bg-emerald-600 text-white text-xs font-bold uppercase tracking-widest py-1 px-4 rounded-bl-lg">Premium Service</div>
+              <h3 className="text-2xl font-heading font-bold text-white mb-4 mt-2">1. Corporate Training Services</h3>
+              <p className="text-gray-300 mb-6 leading-relaxed flex-grow">
+                Comprehensive, expert-led workshops and training programs customized for your organization. Best for businesses seeking deep, structural improvements in leadership, customer service, and operational excellence.
               </p>
-              <ul className="space-y-4 mb-10">
-                <li className="flex items-start gap-3">
-                  <CheckCircle2 className="w-6 h-6 text-emerald-500 shrink-0" />
-                  <span className="text-gray-300 font-medium">Executive Leadership & Management Development</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle2 className="w-6 h-6 text-emerald-500 shrink-0" />
-                  <span className="text-gray-300 font-medium">Customer Service Excellence & Retention Strategies</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle2 className="w-6 h-6 text-emerald-500 shrink-0" />
-                  <span className="text-gray-300 font-medium">Stock Loss & Shrinkage Mitigation Protocols</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle2 className="w-6 h-6 text-emerald-500 shrink-0" />
-                  <span className="text-gray-300 font-medium">Workplace Professionalism & Corporate Ethics</span>
-                </li>
-              </ul>
-            </div>
-            
-            <div className="corporate-card p-10 bg-[var(--color-dark-900)] border-emerald-500/30 shadow-[0_0_30px_rgba(16,185,129,0.1)]">
-              <h3 className="text-2xl font-heading font-bold text-white mb-4">Transform Your Workforce</h3>
-              <p className="text-gray-400 mb-8 leading-relaxed">
-                Whether you need a customized workshop for your executive board or a comprehensive frontline staff training program across multiple branches, our experts are ready to assist.
-              </p>
+              
+              <div className="mb-8">
+                <p className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-3">Designed For:</p>
+                <ul className="space-y-2">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="w-5 h-5 text-emerald-500 shrink-0" />
+                    <span className="text-sm text-gray-300">Organizations & Enterprise Teams</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="w-5 h-5 text-emerald-500 shrink-0" />
+                    <span className="text-sm text-gray-300">HR & Learning/Development Managers</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="w-5 h-5 text-emerald-500 shrink-0" />
+                    <span className="text-sm text-gray-300">Executive Leadership Boards</span>
+                  </li>
+                </ul>
+              </div>
+
               <Link 
                 href="/contact" 
                 className="w-full inline-flex items-center justify-center gap-2 bg-emerald-600 text-white px-6 py-4 rounded-sm font-semibold hover:bg-emerald-500 transition-colors shadow-lg"
               >
-                Request a Training Proposal
+                Request Training Proposal
                 <ArrowRight className="w-4 h-4" />
               </Link>
-              <p className="text-xs text-gray-500 text-center mt-4">Consultations are complimentary for organizations in Botswana.</p>
+            </div>
+
+            {/* Option 2: Professional Training Resources (Entry Offering) */}
+            <div className="corporate-card p-10 bg-[var(--color-dark-900)] border-gray-600 flex flex-col h-full">
+              <h3 className="text-2xl font-heading font-bold text-white mb-4 mt-2">2. Professional Training Resources</h3>
+              <p className="text-gray-400 mb-6 leading-relaxed flex-grow">
+                Immediate access to our proprietary, high-fidelity training manuals, implementation toolkits, and operational workbooks. Ideal for rapid deployment of best practices and individual skill enhancement.
+              </p>
+              
+              <div className="mb-8">
+                <p className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-3">Designed For:</p>
+                <ul className="space-y-2">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="w-5 h-5 text-gray-500 shrink-0" />
+                    <span className="text-sm text-gray-400">Individuals & Independent Professionals</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="w-5 h-5 text-gray-500 shrink-0" />
+                    <span className="text-sm text-gray-400">Entrepreneurs & Small Teams</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="w-5 h-5 text-gray-500 shrink-0" />
+                    <span className="text-sm text-gray-400">Department Supervisors & Managers</span>
+                  </li>
+                </ul>
+              </div>
+
+              <Link 
+                href="/store" 
+                className="w-full inline-flex items-center justify-center gap-2 bg-transparent border border-gray-400/50 text-white px-6 py-4 rounded-sm font-medium hover:bg-white/5 backdrop-blur-sm transition-colors"
+              >
+                Browse Resource Store
+              </Link>
             </div>
           </div>
         </div>

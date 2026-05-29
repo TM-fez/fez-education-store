@@ -89,6 +89,20 @@ export default function ContactPage() {
                 </div>
               </div>
             </div>
+
+            {/* Cross-Pollination: Secondary Action */}
+            <div className="mt-12 p-6 rounded-sm bg-[var(--color-dark-800)] border border-gray-600/50">
+              <h3 className="text-lg font-heading font-bold text-white mb-2">Looking for immediate implementation?</h3>
+              <p className="text-sm text-gray-400 mb-5 leading-relaxed">
+                Support your training initiative with practical guides, toolkits, and implementation resources from the Fez Education Resource Store.
+              </p>
+              <Link 
+                href="/store"
+                className="inline-flex items-center justify-center gap-2 text-sm font-semibold text-white bg-transparent border border-gray-500 px-5 py-2.5 rounded-sm hover:border-white transition-colors"
+              >
+                Browse Supporting Resources
+              </Link>
+            </div>
           </div>
 
           {/* Right Column: Form */}
