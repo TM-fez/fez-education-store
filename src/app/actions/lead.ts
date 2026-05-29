@@ -11,6 +11,9 @@ export async function submitCorporateLead(formData: FormData) {
   const organization_type = formData.get("organization_type")?.toString();
   const employee_count = formData.get("employee_count")?.toString();
   const training_interest = formData.get("training_interest")?.toString();
+  const preferred_dates = formData.get("preferred_dates")?.toString();
+  const location = formData.get("location")?.toString();
+  const budget_range = formData.get("budget_range")?.toString();
   const preferred_format = formData.get("preferred_format")?.toString();
   const message = formData.get("message")?.toString();
 
@@ -32,6 +35,9 @@ export async function submitCorporateLead(formData: FormData) {
       organization_type,
       employee_count,
       training_interest,
+      preferred_dates,
+      location,
+      budget_range,
       preferred_format,
       message,
       status: "new",

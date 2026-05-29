@@ -10,6 +10,9 @@ CREATE TABLE public.corporate_leads (
     organization_type TEXT,
     employee_count TEXT,
     training_interest TEXT NOT NULL,
+    preferred_dates TEXT,
+    location TEXT,
+    budget_range TEXT,
     preferred_format TEXT,
     message TEXT,
     status lead_status DEFAULT 'new'::lead_status NOT NULL

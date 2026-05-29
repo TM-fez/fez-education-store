@@ -1,22 +1,15 @@
 import type { Metadata } from "next";
-import { Inter, Geist } from "next/font/google";
+import { Inter } from "next/font/google";
+import "./globals.css";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
-import "./globals.css";
+import { WhatsAppCTA } from "@/components/ui/whatsapp-cta";
 
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-});
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Fez Education Digital Store",
-  description: "Premium digital training platform for practical skills in Botswana.",
+  title: "Fez Education - Professional Training Solutions for Botswana",
+  description: "Corporate training, workforce development, and operational excellence resources for organizations in the SADC region.",
 };
 
 export default function RootLayout({
@@ -25,14 +18,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${inter.variable} ${geistSans.variable} antialiased h-full`}
-    >
-      <body className="min-h-full flex flex-col pt-16">
+    <html lang="en" className="dark">
+      <body className={`${inter.className} bg-[var(--background)] text-[var(--foreground)] min-h-screen flex flex-col antialiased`}>
         <Navbar />
-        <main className="flex-1 flex flex-col">{children}</main>
+        <main className="flex-1 flex flex-col">
+          {children}
+        </main>
         <Footer />
+        <WhatsAppCTA />
       </body>
     </html>
   );

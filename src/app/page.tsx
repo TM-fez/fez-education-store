@@ -27,17 +27,17 @@ export default function Home() {
             
             <div className="flex flex-col sm:flex-row items-center gap-4 animate-in fade-in slide-in-from-bottom-10 duration-700 delay-500 fill-mode-both">
               <Link 
-                href="/store" 
-                className="inline-flex items-center justify-center gap-2 bg-white text-[var(--color-dark-900)] px-8 py-4 rounded-sm font-semibold hover:bg-gray-100 transition-colors w-full sm:w-auto"
+                href="/contact" 
+                className="inline-flex items-center justify-center gap-2 bg-emerald-600 text-white px-8 py-4 rounded-sm font-semibold hover:bg-emerald-500 transition-colors w-full sm:w-auto shadow-[0_0_20px_rgba(16,185,129,0.3)] hover:shadow-[0_0_30px_rgba(16,185,129,0.5)]"
               >
-                Explore Training Resources
+                Request Corporate Training Proposal
                 <ArrowRight className="w-4 h-4" />
               </Link>
               <Link 
-                href="/contact" 
-                className="inline-flex items-center justify-center gap-2 bg-transparent border border-gray-400/50 text-white px-8 py-4 rounded-sm font-medium hover:bg-black/30 backdrop-blur-sm transition-colors w-full sm:w-auto"
+                href="/store" 
+                className="inline-flex items-center justify-center gap-2 bg-transparent border border-gray-400/50 text-white px-8 py-4 rounded-sm font-medium hover:bg-white/5 backdrop-blur-sm transition-colors w-full sm:w-auto"
               >
-                Request Corporate Training Consultation
+                Explore Training Resources
               </Link>
             </div>
           </div>
@@ -57,8 +57,56 @@ export default function Home() {
         </div>
       </section>
 
+      {/* CORPORATE TRAINING SERVICES & AREAS - MOVED UP TO PRIORITIZE SALES */}
+      <section className="py-24 bg-[var(--color-dark-800)] border-b border-[var(--color-dark-600)] relative overflow-hidden">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <h2 className="text-sm font-bold text-emerald-500 tracking-widest uppercase mb-3">Corporate Training Services</h2>
+              <p className="text-3xl md:text-4xl font-heading font-bold text-white mb-6">Your Partner in Operational Excellence</p>
+              <p className="text-gray-300 text-lg leading-relaxed mb-8">
+                We design and deliver high-impact corporate training programs that solve critical business challenges. We don't just teach theory; we equip your workforce with the practical skills required to drive measurable performance improvements.
+              </p>
+              <ul className="space-y-4 mb-10">
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="w-6 h-6 text-emerald-500 shrink-0" />
+                  <span className="text-gray-300 font-medium">Executive Leadership & Management Development</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="w-6 h-6 text-emerald-500 shrink-0" />
+                  <span className="text-gray-300 font-medium">Customer Service Excellence & Retention Strategies</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="w-6 h-6 text-emerald-500 shrink-0" />
+                  <span className="text-gray-300 font-medium">Stock Loss & Shrinkage Mitigation Protocols</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="w-6 h-6 text-emerald-500 shrink-0" />
+                  <span className="text-gray-300 font-medium">Workplace Professionalism & Corporate Ethics</span>
+                </li>
+              </ul>
+            </div>
+            
+            <div className="corporate-card p-10 bg-[var(--color-dark-900)] border-emerald-500/30 shadow-[0_0_30px_rgba(16,185,129,0.1)]">
+              <h3 className="text-2xl font-heading font-bold text-white mb-4">Transform Your Workforce</h3>
+              <p className="text-gray-400 mb-8 leading-relaxed">
+                Whether you need a customized workshop for your executive board or a comprehensive frontline staff training program across multiple branches, our experts are ready to assist.
+              </p>
+              <Link 
+                href="/contact" 
+                className="w-full inline-flex items-center justify-center gap-2 bg-emerald-600 text-white px-6 py-4 rounded-sm font-semibold hover:bg-emerald-500 transition-colors shadow-lg"
+              >
+                Request a Training Proposal
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+              <p className="text-xs text-gray-500 text-center mt-4">Consultations are complimentary for organizations in Botswana.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* WHY ORGANIZATIONS CHOOSE FEZ EDUCATION */}
-      <section className="py-24 bg-[var(--color-dark-800)] border-b border-[var(--color-dark-600)]">
+      <section className="py-24 bg-[var(--color-dark-900)] border-b border-[var(--color-dark-600)]">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mb-16 text-center max-w-3xl mx-auto">
             <h2 className="text-sm font-bold text-gray-400 tracking-widest uppercase mb-3">Institutional Trust</h2>
@@ -67,69 +115,22 @@ export default function Home() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
-            <div className="corporate-card p-8 hover:border-gray-400 transition-colors">
+            <div className="corporate-card p-8 hover:border-gray-400 transition-colors bg-[var(--color-dark-800)]">
               <Users className="w-8 h-8 text-white mb-6" />
               <h3 className="text-xl font-heading font-semibold text-white mb-3">Practical Workplace Learning</h3>
               <p className="text-gray-400 leading-relaxed text-sm">We focus on actionable skills and real-world scenarios, moving beyond theory to ensure immediate application in the professional environment.</p>
             </div>
             
-            <div className="corporate-card p-8 hover:border-gray-400 transition-colors">
+            <div className="corporate-card p-8 hover:border-gray-400 transition-colors bg-[var(--color-dark-800)]">
               <Building2 className="w-8 h-8 text-white mb-6" />
               <h3 className="text-xl font-heading font-semibold text-white mb-3">Botswana-Focused Delivery</h3>
               <p className="text-gray-400 leading-relaxed text-sm">Our training resources and consulting services are tailored to the unique economic, cultural, and operational realities of the SADC region.</p>
             </div>
 
-            <div className="corporate-card p-8 hover:border-gray-400 transition-colors">
+            <div className="corporate-card p-8 hover:border-gray-400 transition-colors bg-[var(--color-dark-800)]">
               <ShieldCheck className="w-8 h-8 text-white mb-6" />
               <h3 className="text-xl font-heading font-semibold text-white mb-3">Workforce Capability Building</h3>
               <p className="text-gray-400 leading-relaxed text-sm">We partner with HR managers and business owners to systemize professional development and elevate the baseline of organizational competence.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CORPORATE TRAINING SERVICES & AREAS */}
-      <section className="py-24 bg-[var(--color-dark-900)] border-b border-[var(--color-dark-600)] relative overflow-hidden">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <h2 className="text-sm font-bold text-gray-400 tracking-widest uppercase mb-3">Corporate Training Services</h2>
-              <p className="text-3xl md:text-4xl font-heading font-bold text-white mb-6">Your Partner in Operational Excellence</p>
-              <p className="text-gray-400 text-lg leading-relaxed mb-8">
-                Fez Education provides more than just training manuals. We are a dedicated workforce development partner, specializing in equipping your staff with the critical skills required to drive your business forward.
-              </p>
-              <ul className="space-y-4 mb-10">
-                <li className="flex items-start gap-3">
-                  <CheckCircle2 className="w-6 h-6 text-emerald-500 shrink-0" />
-                  <span className="text-gray-300">Leadership & Management Development</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle2 className="w-6 h-6 text-emerald-500 shrink-0" />
-                  <span className="text-gray-300">Customer Service Excellence Training</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle2 className="w-6 h-6 text-emerald-500 shrink-0" />
-                  <span className="text-gray-300">Stock Loss & Shrinkage Mitigation</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle2 className="w-6 h-6 text-emerald-500 shrink-0" />
-                  <span className="text-gray-300">Professional Communication & Etiquette</span>
-                </li>
-              </ul>
-            </div>
-            
-            <div className="corporate-card p-10 bg-[var(--color-dark-800)] border-gray-600">
-              <h3 className="text-2xl font-heading font-bold text-white mb-6">Need Corporate Training For Your Team?</h3>
-              <p className="text-gray-400 mb-8">
-                Whether you need a customized workshop for your executive board or a comprehensive frontline staff training program, our experts are ready to assist.
-              </p>
-              <Link 
-                href="/contact" 
-                className="w-full inline-flex items-center justify-center gap-2 bg-white text-[var(--color-dark-900)] px-6 py-4 rounded-sm font-semibold hover:bg-gray-100 transition-colors"
-              >
-                Schedule a Consultation
-                <MessageSquare className="w-4 h-4" />
-              </Link>
             </div>
           </div>
         </div>

@@ -173,18 +173,45 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              <div className="space-y-2">
-                <label htmlFor="training_interest" className="block text-sm font-medium text-gray-300">Primary Training Interest *</label>
-                <div className="relative">
-                  <select required id="training_interest" name="training_interest" className="w-full bg-[var(--color-dark-900)] border border-gray-600 rounded-sm px-4 py-3 text-white appearance-none focus:outline-none focus:border-emerald-500 transition-colors">
-                    <option value="">Select an area of focus</option>
-                    <option value="Leadership & Team Building">Leadership & Team Building</option>
-                    <option value="Customer Service Excellence">Customer Service Excellence</option>
-                    <option value="Stock Loss & Shrinkage">Stock Loss & Shrinkage Mitigation</option>
-                    <option value="Workplace Professionalism">Workplace Professionalism & Ethics</option>
-                    <option value="Other">Other Custom Requirement</option>
-                  </select>
-                  <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" />
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <label htmlFor="training_interest" className="block text-sm font-medium text-gray-300">Primary Training Interest *</label>
+                  <div className="relative">
+                    <select required id="training_interest" name="training_interest" className="w-full bg-[var(--color-dark-900)] border border-gray-600 rounded-sm px-4 py-3 text-white appearance-none focus:outline-none focus:border-emerald-500 transition-colors">
+                      <option value="">Select an area of focus</option>
+                      <option value="Leadership & Team Building">Leadership & Team Building</option>
+                      <option value="Customer Service Excellence">Customer Service Excellence</option>
+                      <option value="Stock Loss & Shrinkage">Stock Loss & Shrinkage Mitigation</option>
+                      <option value="Workplace Professionalism">Workplace Professionalism & Ethics</option>
+                      <option value="Other">Other Custom Requirement</option>
+                    </select>
+                    <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" />
+                  </div>
+                </div>
+                <div className="space-y-2">
+                  <label htmlFor="budget_range" className="block text-sm font-medium text-gray-300">Budget Range</label>
+                  <div className="relative">
+                    <select id="budget_range" name="budget_range" className="w-full bg-[var(--color-dark-900)] border border-gray-600 rounded-sm px-4 py-3 text-white appearance-none focus:outline-none focus:border-emerald-500 transition-colors">
+                      <option value="">Select Budget</option>
+                      <option value="Under P10,000">Under P10,000</option>
+                      <option value="P10,000 - P25,000">P10,000 - P25,000</option>
+                      <option value="P25,000 - P50,000">P25,000 - P50,000</option>
+                      <option value="P50,000+">P50,000+</option>
+                      <option value="TBD">To Be Discussed</option>
+                    </select>
+                    <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" />
+                  </div>
+                </div>
+              </div>
+
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <label htmlFor="location" className="block text-sm font-medium text-gray-300">Training Location</label>
+                  <input type="text" id="location" name="location" className="w-full bg-[var(--color-dark-900)] border border-gray-600 rounded-sm px-4 py-3 text-white focus:outline-none focus:border-emerald-500 transition-colors" placeholder="e.g. Gaborone, Francistown, On-site" />
+                </div>
+                <div className="space-y-2">
+                  <label htmlFor="preferred_dates" className="block text-sm font-medium text-gray-300">Preferred Dates / Timeline</label>
+                  <input type="text" id="preferred_dates" name="preferred_dates" className="w-full bg-[var(--color-dark-900)] border border-gray-600 rounded-sm px-4 py-3 text-white focus:outline-none focus:border-emerald-500 transition-colors" placeholder="e.g. Next month, Q3 2026" />
                 </div>
               </div>
 

@@ -37,7 +37,7 @@ export const products: Product[] = [
     price: 850,
     category_id: "c1",
     is_featured: true,
-    image_url: "/images/cover_leadership.png",
+    image_url: "/images/cover_leadership_p1.png",
     target_audience: "Supervisors, Department Heads, and Emerging Leaders",
     key_learning_outcomes: ["Resolving workplace conflicts", "Building high-performance teams", "Driving staff accountability", "Effective delegation strategies"]
   },
@@ -51,7 +51,7 @@ export const products: Product[] = [
     price: 650,
     category_id: "c2",
     is_featured: true,
-    image_url: "/images/cover_customer_service.png",
+    image_url: "/images/cover_customer_service_p2.png",
     target_audience: "Frontline Staff, Customer Service Managers, Retail Teams",
     key_learning_outcomes: ["Handling difficult customer interactions", "Building brand loyalty", "Exceeding consumer expectations", "Professional service communication"]
   },
@@ -65,7 +65,7 @@ export const products: Product[] = [
     price: 900,
     category_id: "c3",
     is_featured: true,
-    image_url: "/images/cover_stock_loss.png",
+    image_url: "/images/cover_stock_loss_p3.png",
     target_audience: "Retail Managers, Warehouse Supervisors, Operations Directors",
     key_learning_outcomes: ["Identifying shrinkage vulnerability points", "Implementing robust inventory controls", "Staff training for loss prevention", "Auditing and compliance"]
   },
@@ -79,7 +79,7 @@ export const products: Product[] = [
     price: 450,
     category_id: "c4",
     is_featured: false,
-    image_url: "/images/cover_leadership.png",
+    image_url: "/images/cover_etiquette_p4.png",
     target_audience: "New Hires, Junior Staff, Human Resources",
     key_learning_outcomes: ["Understanding corporate expectations", "Professional appearance and demeanor", "Ethical workplace conduct", "Fostering respect and inclusion"]
   },
@@ -93,7 +93,7 @@ export const products: Product[] = [
     price: 550,
     category_id: "c4",
     is_featured: false,
-    image_url: "/images/cover_customer_service.png",
+    image_url: "/images/cover_communication_p5.png",
     target_audience: "All Professionals, Administrative Staff, Managers",
     key_learning_outcomes: ["Drafting clear and concise emails", "Structuring executive summaries", "Effective internal communication", "Delivering impactful presentations"]
   },
@@ -107,7 +107,7 @@ export const products: Product[] = [
     price: 700,
     category_id: "c1",
     is_featured: true,
-    image_url: "/images/cover_stock_loss.png",
+    image_url: "/images/cover_critical_thinking_p6.png",
     target_audience: "Supervisors, Shift Managers, Operations Leads",
     key_learning_outcomes: ["Analyzing operational bottlenecks", "Evaluating evidence objectively", "Risk mitigation strategies", "Decision making under pressure"]
   },
@@ -121,7 +121,7 @@ export const products: Product[] = [
     price: 750,
     category_id: "c2",
     is_featured: false,
-    image_url: "/images/cover_customer_service.png",
+    image_url: "/images/cover_crm_p7.png",
     target_audience: "Account Managers, B2B Sales Professionals, Client Success Teams",
     key_learning_outcomes: ["Nurturing long-term relationships", "Managing B2B accounts", "Client retention strategies", "Handling complex service recoveries"]
   },
@@ -135,7 +135,7 @@ export const products: Product[] = [
     price: 800,
     category_id: "c3",
     is_featured: false,
-    image_url: "/images/cover_stock_loss.png",
+    image_url: "/images/cover_qa_p8.png",
     target_audience: "QA Officers, Production Managers, Service Delivery Leads",
     key_learning_outcomes: ["Principles of quality control", "Process auditing techniques", "Maintaining delivery consistency", "Fostering continuous improvement"]
   },
@@ -149,7 +149,7 @@ export const products: Product[] = [
     price: 950,
     category_id: "c1",
     is_featured: true,
-    image_url: "/images/cover_leadership.png",
+    image_url: "/images/cover_management_p9.png",
     target_audience: "New Managers, Small Business Owners, Operations Directors",
     key_learning_outcomes: ["Strategic planning fundamentals", "Resource allocation and budgeting", "Monitoring team performance", "Operational leadership"]
   }

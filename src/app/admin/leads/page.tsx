@@ -88,6 +88,21 @@ export default async function AdminLeadsPage() {
                   </div>
                 </div>
 
+                <div className="grid sm:grid-cols-3 gap-4 pt-4 border-t border-[var(--color-dark-600)] text-sm">
+                  <div>
+                    <span className="text-gray-500 block text-xs uppercase tracking-wider mb-1">Timeline</span>
+                    <span className="text-gray-300">{lead.preferred_dates || 'Not specified'}</span>
+                  </div>
+                  <div>
+                    <span className="text-gray-500 block text-xs uppercase tracking-wider mb-1">Location</span>
+                    <span className="text-gray-300">{lead.location || 'Not specified'}</span>
+                  </div>
+                  <div>
+                    <span className="text-gray-500 block text-xs uppercase tracking-wider mb-1">Budget</span>
+                    <span className="text-gray-300">{lead.budget_range || 'Not specified'}</span>
+                  </div>
+                </div>
+
                 <div className="pt-4 border-t border-[var(--color-dark-600)]">
                   <p className="text-sm font-semibold text-white mb-2">Training Interest: <span className="text-emerald-400 font-normal">{lead.training_interest}</span></p>
                   {lead.message && (
