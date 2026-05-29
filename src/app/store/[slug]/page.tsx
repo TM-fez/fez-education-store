@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowLeft, CheckCircle2, ShieldCheck, FileText, Briefcase } from "lucide-react";
+import { ArrowLeft, CheckCircle2, ShieldCheck, FileText, Briefcase, Target, Users } from "lucide-react";
 import { getProductBySlug } from "@/lib/data";
 
 export default async function ProductPage({
@@ -40,40 +40,62 @@ export default async function ProductPage({
               />
             </div>
 
-            <h1 className="text-3xl md:text-5xl font-heading font-bold mb-6 text-white leading-tight">
+            <h1 className="text-3xl md:text-5xl font-heading font-bold mb-4 text-white leading-tight">
               {product.title}
             </h1>
             
-            <p className="text-lg text-gray-300 mb-8 leading-relaxed">
-              {product.description}
-            </p>
+            {product.subtitle && (
+              <p className="text-xl text-gray-400 font-medium mb-8">
+                {product.subtitle}
+              </p>
+            )}
 
-            <div className="corporate-card p-8 mb-8">
-              <h2 className="text-xl font-heading font-bold mb-6 text-white flex items-center gap-2">
-                <Briefcase className="w-5 h-5 text-gray-400" />
-                Key Workplace Outcomes
-              </h2>
-              <ul className="space-y-4">
-                <li className="flex items-start gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-white shrink-0 mt-0.5" />
-                  <span className="text-gray-300">Implement immediately actionable strategies in your workplace.</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-white shrink-0 mt-0.5" />
-                  <span className="text-gray-300">Align team operations with standardized best practices.</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-white shrink-0 mt-0.5" />
-                  <span className="text-gray-300">Mitigate operational risks specific to the SADC region.</span>
-                </li>
+            <div className="prose prose-invert prose-lg max-w-none text-gray-300 mb-12">
+              <p>{product.description}</p>
+            </div>
+
+            {/* Workplace Outcomes / Key Learning Outcomes */}
+            <div className="mb-12">
+              <h3 className="text-xl font-heading font-semibold text-white mb-6 flex items-center gap-2">
+                <Target className="w-5 h-5 text-emerald-500" />
+                Key Learning Outcomes
+              </h3>
+              <ul className="grid sm:grid-cols-2 gap-4">
+                {product.key_learning_outcomes?.map((outcome: string, idx: number) => (
+                  <li key={idx} className="flex items-start gap-3 corporate-card p-4">
+                    <CheckCircle2 className="w-5 h-5 text-emerald-500 shrink-0 mt-0.5" />
+                    <span className="text-sm font-medium text-gray-300">{outcome}</span>
+                  </li>
+                ))}
               </ul>
             </div>
             
-            <div className="mt-8">
-              <h2 className="text-xl font-heading font-bold mb-4 text-white">Resource Format</h2>
-              <div className="flex items-center gap-3 text-gray-400">
-                <FileText className="w-5 h-5" />
-                <span>Comprehensive PDF Guide & Executive Toolkit</span>
+            {/* Target Audience */}
+            <div className="mb-12">
+              <h3 className="text-xl font-heading font-semibold text-white mb-6 flex items-center gap-2">
+                <Users className="w-5 h-5 text-emerald-500" />
+                Target Audience
+              </h3>
+              <div className="corporate-card p-6 border-l-4 border-l-emerald-500">
+                <p className="text-gray-300 font-medium">{product.target_audience}</p>
+              </div>
+            </div>
+
+            {/* Technical Details */}
+            <div className="grid sm:grid-cols-2 gap-6 pt-8 border-t border-[var(--color-dark-600)]">
+              <div className="flex items-start gap-3">
+                <ShieldCheck className="w-6 h-6 text-gray-400" />
+                <div>
+                  <h4 className="font-semibold text-white">Botswana Framework</h4>
+                  <p className="text-sm text-gray-400">Aligned with SADC business practices</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <FileText className="w-6 h-6 text-gray-400" />
+                <div>
+                  <h4 className="font-semibold text-white">Practical Formats</h4>
+                  <p className="text-sm text-gray-400">PDF, Excel templates, Checklists</p>
+                </div>
               </div>
             </div>
           </div>
