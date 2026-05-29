@@ -4,11 +4,11 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 
 const CAROUSEL_IMAGES = [
-  { src: "/images/hero_botswana_training.png", alt: "Botswana corporate leadership workshop" },
-  { src: "/images/industry_retail.png", alt: "Retail operations and management" },
-  { src: "/images/industry_logistics.png", alt: "Logistics and warehousing" },
-  { src: "/images/industry_hospitality.png", alt: "Hospitality and tourism training" },
-  { src: "/images/industry_admin.png", alt: "Corporate administration" },
+  { src: "/images/gaborone_cbd.png", alt: "Modern Gaborone CBD skyline representing the Botswana business environment" },
+  { src: "/images/hero_botswana_training.png", alt: "Corporate workforce development and training" },
+  { src: "/images/cover_leadership_p1.png", alt: "Leadership and management excellence" },
+  { src: "/images/cover_customer_service_p2.png", alt: "Customer service excellence and client relations" },
+  { src: "/images/cover_qa_p8.png", alt: "Operational performance improvement and quality assurance" },
 ];
 
 export function HeroCarousel() {
