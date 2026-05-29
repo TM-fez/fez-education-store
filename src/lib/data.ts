@@ -13,6 +13,7 @@ export type Product = {
   price: number;
   category_id: string;
   is_featured: boolean;
+  image_url: string;
 };
 
 export const categories: Category[] = [
@@ -31,6 +32,7 @@ export const products: Product[] = [
     price: 450, // Pula
     category_id: "c1",
     is_featured: true,
+    image_url: "/images/product_p1.png",
   },
   {
     id: "p2",
@@ -41,6 +43,7 @@ export const products: Product[] = [
     price: 600,
     category_id: "c3",
     is_featured: true,
+    image_url: "/images/product_p2.png",
   },
   {
     id: "p3",
@@ -51,6 +54,7 @@ export const products: Product[] = [
     price: 350,
     category_id: "c1",
     is_featured: false,
+    image_url: "/images/product_p3.png",
   },
   {
     id: "p4",
@@ -61,6 +65,7 @@ export const products: Product[] = [
     price: 750,
     category_id: "c2",
     is_featured: true,
+    image_url: "/images/product_p4.png",
   },
   {
     id: "p5",
@@ -71,7 +76,8 @@ export const products: Product[] = [
     price: 500,
     category_id: "c1",
     is_featured: false,
-  },
+    image_url: "/images/product_p5.png",
+  }
 ];
 
 export function getProductBySlug(slug: string): Product | undefined {

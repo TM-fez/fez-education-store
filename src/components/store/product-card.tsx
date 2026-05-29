@@ -1,25 +1,31 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Product, getCategoryById } from "@/lib/data";
-import { ArrowRight, BookText } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 export function ProductCard({ product }: { product: Product }) {
   const category = getCategoryById(product.category_id);
   
   return (
     <Link href={`/store/${product.slug}`} className="block h-full group">
-      <div className="corporate-card flex flex-col h-full hover:border-gray-400 transition-colors">
-        <div className="p-6 flex-1 flex flex-col">
-          <div className="flex justify-between items-start mb-4">
-            <div className="w-10 h-10 bg-gray-800 text-gray-300 rounded-sm flex items-center justify-center border border-gray-700">
-              <BookText className="w-5 h-5" />
-            </div>
-            {category && (
-              <span className="text-xs font-semibold text-gray-400 bg-gray-800 px-2 py-1 rounded-sm border border-gray-700">
+      <div className="corporate-card flex flex-col h-full hover:border-gray-400 transition-colors overflow-hidden">
+        <div className="relative aspect-[4/3] w-full bg-gray-800 border-b border-gray-700 mb-4 group/image overflow-hidden">
+          <Image 
+            src={product.image_url} 
+            alt={product.title} 
+            fill 
+            className="object-cover group-hover/image:scale-105 transition-transform duration-500" 
+          />
+          {category && (
+            <div className="absolute top-3 right-3">
+              <span className="text-[10px] font-bold text-white bg-black/60 backdrop-blur-md px-2 py-1 rounded-sm border border-gray-600 uppercase tracking-wider">
                 {category.name}
               </span>
-            )}
-          </div>
-          
+            </div>
+          )}
+        </div>
+        
+        <div className="px-6 pb-6 flex-1 flex flex-col">
           <h3 className="text-lg font-heading font-semibold text-white mb-2 line-clamp-2 group-hover:text-gray-300 transition-colors">
             {product.title}
           </h3>

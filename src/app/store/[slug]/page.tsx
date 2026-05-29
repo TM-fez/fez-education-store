@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowLeft, CheckCircle2, ShieldCheck, FileText, Briefcase } from "lucide-react";
 import { getProductBySlug } from "@/lib/data";
 
@@ -17,7 +18,7 @@ export default async function ProductPage({
 
   return (
     <div className="flex-1 bg-[var(--color-dark-900)] py-12">
-      <div className="mx-auto max-w-5xl px-6 lg:px-8">
+      <div className="mx-auto max-w-6xl px-6 lg:px-8">
         <Link 
           href="/store" 
           className="inline-flex items-center gap-2 text-sm font-medium text-gray-400 hover:text-white transition-colors mb-8"
@@ -26,9 +27,19 @@ export default async function ProductPage({
           Back to Resource Store
         </Link>
 
-        <div className="grid md:grid-cols-[2fr_1fr] gap-12">
+        <div className="grid lg:grid-cols-[2fr_1fr] gap-12">
           {/* Main Content */}
           <div>
+            <div className="relative aspect-[16/9] md:aspect-[2/1] w-full rounded-sm overflow-hidden border border-[var(--color-dark-600)] mb-10 shadow-xl">
+              <Image 
+                src={product.image_url} 
+                alt={product.title} 
+                fill 
+                className="object-cover"
+                priority
+              />
+            </div>
+
             <h1 className="text-3xl md:text-5xl font-heading font-bold mb-6 text-white leading-tight">
               {product.title}
             </h1>

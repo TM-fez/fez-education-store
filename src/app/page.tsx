@@ -1,39 +1,55 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, Building2, Briefcase, ShieldCheck, PieChart, Users, BarChart3, GraduationCap } from "lucide-react";
 
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen bg-[var(--color-dark-900)]">
       {/* EXECUTIVE HERO SECTION */}
-      <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 flex items-center justify-center min-h-[85vh] border-b border-[var(--color-dark-600)]">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8 relative text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-sm border border-[var(--color-dark-600)] bg-[var(--color-dark-800)] text-sm font-medium mb-8 text-gray-300">
-            <span className="flex h-2 w-2 bg-emerald-500"></span>
-            <span>Trusted Workforce Development Partner</span>
-          </div>
-          
-          <h1 className="text-4xl md:text-6xl font-heading font-bold tracking-tight text-white max-w-4xl mx-auto leading-tight mb-6">
-            Professional Training Solutions for Botswana
-          </h1>
-          
-          <p className="mt-6 text-lg md:text-xl text-gray-400 max-w-3xl mx-auto text-balance mb-10 leading-relaxed">
-            Equipping organizations and professionals with practical, outcome-driven skills in Leadership, Customer Excellence, and Operational Management across the SADC region.
-          </p>
-          
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link 
-              href="/store" 
-              className="inline-flex items-center justify-center gap-2 bg-white text-[var(--color-dark-900)] px-8 py-4 rounded-sm font-semibold hover:bg-gray-100 transition-colors w-full sm:w-auto"
-            >
-              View Training Resources
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-            <Link 
-              href="/contact" 
-              className="inline-flex items-center justify-center gap-2 bg-transparent border border-gray-600 text-white px-8 py-4 rounded-sm font-medium hover:bg-[var(--color-dark-800)] transition-colors w-full sm:w-auto"
-            >
-              Consult with Our Experts
-            </Link>
+      <section className="relative pt-32 pb-20 md:pt-40 md:pb-32 border-b border-[var(--color-dark-600)] overflow-hidden">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8 relative">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-sm border border-[var(--color-dark-600)] bg-[var(--color-dark-800)] text-sm font-medium mb-8 text-gray-300">
+                <span className="flex h-2 w-2 bg-emerald-500"></span>
+                <span>Trusted Workforce Development Partner</span>
+              </div>
+              
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold tracking-tight text-white leading-tight mb-6">
+                Professional Training Solutions for Botswana
+              </h1>
+              
+              <p className="mt-6 text-lg md:text-xl text-gray-400 text-balance mb-10 leading-relaxed max-w-xl">
+                Equipping organizations and professionals with practical, outcome-driven skills in Leadership, Customer Excellence, and Operational Management across the SADC region.
+              </p>
+              
+              <div className="flex flex-col sm:flex-row items-center gap-4">
+                <Link 
+                  href="/store" 
+                  className="inline-flex items-center justify-center gap-2 bg-white text-[var(--color-dark-900)] px-8 py-4 rounded-sm font-semibold hover:bg-gray-100 transition-colors w-full sm:w-auto"
+                >
+                  View Training Resources
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+                <Link 
+                  href="/contact" 
+                  className="inline-flex items-center justify-center gap-2 bg-transparent border border-gray-600 text-white px-8 py-4 rounded-sm font-medium hover:bg-[var(--color-dark-800)] transition-colors w-full sm:w-auto"
+                >
+                  Consult with Our Experts
+                </Link>
+              </div>
+            </div>
+            
+            <div className="relative aspect-[4/3] lg:aspect-square w-full rounded-sm overflow-hidden border border-[var(--color-dark-600)] shadow-2xl hidden md:block">
+              <Image 
+                src="/images/hero_training.png" 
+                alt="Corporate Training Workshop in Botswana" 
+                fill 
+                className="object-cover"
+                priority
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-dark-900)]/80 via-transparent to-transparent"></div>
+            </div>
           </div>
         </div>
       </section>
@@ -77,22 +93,38 @@ export default function Home() {
             <p className="text-3xl md:text-4xl font-heading font-bold text-white mb-4">Industries We Support</p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <div className="corporate-card p-6 flex flex-col items-center text-center">
-              <Briefcase className="w-6 h-6 text-gray-300 mb-3" />
-              <span className="font-semibold text-white text-sm">Financial Services</span>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="corporate-card relative h-48 flex flex-col items-center justify-center text-center overflow-hidden group">
+              <Image src="/images/industry_admin.png" alt="Financial Services" fill className="object-cover opacity-30 group-hover:opacity-40 transition-opacity" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-dark-900)]/90 to-transparent"></div>
+              <div className="relative z-10">
+                <Briefcase className="w-8 h-8 text-white mb-3 mx-auto" />
+                <span className="font-semibold text-white text-lg">Financial Services</span>
+              </div>
             </div>
-            <div className="corporate-card p-6 flex flex-col items-center text-center">
-              <PieChart className="w-6 h-6 text-gray-300 mb-3" />
-              <span className="font-semibold text-white text-sm">Public Sector & Gov</span>
+            <div className="corporate-card relative h-48 flex flex-col items-center justify-center text-center overflow-hidden group">
+              <Image src="/images/industry_retail.png" alt="Retail Operations" fill className="object-cover opacity-30 group-hover:opacity-40 transition-opacity" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-dark-900)]/90 to-transparent"></div>
+              <div className="relative z-10">
+                <PieChart className="w-8 h-8 text-white mb-3 mx-auto" />
+                <span className="font-semibold text-white text-lg">Retail Operations</span>
+              </div>
             </div>
-            <div className="corporate-card p-6 flex flex-col items-center text-center">
-              <BarChart3 className="w-6 h-6 text-gray-300 mb-3" />
-              <span className="font-semibold text-white text-sm">Mining & Resources</span>
+            <div className="corporate-card relative h-48 flex flex-col items-center justify-center text-center overflow-hidden group">
+              <Image src="/images/industry_logistics.png" alt="Logistics & Warehousing" fill className="object-cover opacity-30 group-hover:opacity-40 transition-opacity" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-dark-900)]/90 to-transparent"></div>
+              <div className="relative z-10">
+                <BarChart3 className="w-8 h-8 text-white mb-3 mx-auto" />
+                <span className="font-semibold text-white text-lg">Logistics & Storage</span>
+              </div>
             </div>
-            <div className="corporate-card p-6 flex flex-col items-center text-center">
-              <GraduationCap className="w-6 h-6 text-gray-300 mb-3" />
-              <span className="font-semibold text-white text-sm">Tourism & Hospitality</span>
+            <div className="corporate-card relative h-48 flex flex-col items-center justify-center text-center overflow-hidden group">
+              <Image src="/images/industry_hospitality.png" alt="Tourism & Hospitality" fill className="object-cover opacity-30 group-hover:opacity-40 transition-opacity" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-dark-900)]/90 to-transparent"></div>
+              <div className="relative z-10">
+                <GraduationCap className="w-8 h-8 text-white mb-3 mx-auto" />
+                <span className="font-semibold text-white text-lg">Tourism & Hospitality</span>
+              </div>
             </div>
           </div>
         </div>
