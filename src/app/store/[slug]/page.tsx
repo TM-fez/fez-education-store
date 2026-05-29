@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowLeft, CheckCircle2, ShieldCheck, FileText, Briefcase, Target, Users } from "lucide-react";
+import { ArrowLeft, CheckCircle2, ShieldCheck, FileText, Briefcase, Target, Users, ArrowRight } from "lucide-react";
 import { getProductBySlug } from "@/lib/data";
 
 export default async function ProductPage({
@@ -17,84 +17,88 @@ export default async function ProductPage({
   }
 
   return (
-    <div className="flex-1 bg-[var(--color-dark-900)] py-12">
+    <div className="flex-1 py-12" style={{ backgroundColor: "var(--color-surface-200)" }}>
       <div className="mx-auto max-w-6xl px-6 lg:px-8">
-        <Link 
-          href="/store" 
-          className="inline-flex items-center gap-2 text-sm font-medium text-gray-400 hover:text-white transition-colors mb-8"
+        <Link
+          href="/store"
+          className="inline-flex items-center gap-2 text-sm font-medium text-slate-500 hover:text-slate-900 transition-colors mb-10"
         >
           <ArrowLeft className="w-4 h-4" />
-          Back to Resource Store
+          Back to Resource Library
         </Link>
 
         <div className="grid lg:grid-cols-[2fr_1fr] gap-12">
           {/* Main Content */}
           <div>
-            <div className="relative aspect-[16/9] md:aspect-[2/1] w-full rounded-sm overflow-hidden border border-[var(--color-dark-600)] mb-10 shadow-xl">
-              <Image 
-                src={product.image_url} 
-                alt={product.title} 
-                fill 
+            <div className="relative aspect-[16/9] md:aspect-[2/1] w-full rounded-sm overflow-hidden border border-slate-200 mb-10 shadow-md">
+              <Image
+                src={product.image_url}
+                alt={product.title}
+                fill
                 className="object-cover"
                 priority
               />
             </div>
 
-            <h1 className="text-3xl md:text-5xl font-heading font-bold mb-4 text-white leading-tight">
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-[var(--color-brand-navy)]/10 text-[var(--color-brand-navy)] text-xs font-bold uppercase tracking-widest rounded-sm mb-4">
+              Implementation Resource
+            </div>
+
+            <h1 className="text-3xl md:text-4xl font-heading font-bold mb-4 text-slate-900 leading-tight">
               {product.title}
             </h1>
-            
+
             {product.subtitle && (
-              <p className="text-xl text-gray-400 font-medium mb-8">
+              <p className="text-lg text-slate-500 font-medium mb-8 border-l-4 border-[var(--color-brand-navy)] pl-4">
                 {product.subtitle}
               </p>
             )}
 
-            <div className="prose prose-invert prose-lg max-w-none text-gray-300 mb-12">
+            <div className="prose prose-slate prose-lg max-w-none mb-12">
               <p>{product.description}</p>
             </div>
 
-            {/* Workplace Outcomes / Key Learning Outcomes */}
+            {/* Key Learning Outcomes */}
             <div className="mb-12">
-              <h3 className="text-xl font-heading font-semibold text-white mb-6 flex items-center gap-2">
-                <Target className="w-5 h-5 text-emerald-500" />
+              <h3 className="text-xl font-heading font-semibold text-slate-900 mb-6 flex items-center gap-2">
+                <Target className="w-5 h-5 text-[var(--color-brand-navy)]" />
                 Key Learning Outcomes
               </h3>
               <ul className="grid sm:grid-cols-2 gap-4">
                 {product.key_learning_outcomes?.map((outcome: string, idx: number) => (
-                  <li key={idx} className="flex items-start gap-3 corporate-card p-4">
-                    <CheckCircle2 className="w-5 h-5 text-emerald-500 shrink-0 mt-0.5" />
-                    <span className="text-sm font-medium text-gray-300">{outcome}</span>
+                  <li key={idx} className="corporate-card p-4 flex items-start gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
+                    <span className="text-sm font-medium text-slate-700">{outcome}</span>
                   </li>
                 ))}
               </ul>
             </div>
-            
+
             {/* Target Audience */}
             <div className="mb-12">
-              <h3 className="text-xl font-heading font-semibold text-white mb-6 flex items-center gap-2">
-                <Users className="w-5 h-5 text-emerald-500" />
+              <h3 className="text-xl font-heading font-semibold text-slate-900 mb-6 flex items-center gap-2">
+                <Users className="w-5 h-5 text-[var(--color-brand-navy)]" />
                 Target Audience
               </h3>
-              <div className="corporate-card p-6 border-l-4 border-l-emerald-500">
-                <p className="text-gray-300 font-medium">{product.target_audience}</p>
+              <div className="corporate-card p-6 border-l-4 border-l-[var(--color-brand-navy)]">
+                <p className="text-slate-700 font-medium">{product.target_audience}</p>
               </div>
             </div>
 
             {/* Technical Details */}
-            <div className="grid sm:grid-cols-2 gap-6 pt-8 border-t border-[var(--color-dark-600)]">
+            <div className="grid sm:grid-cols-2 gap-6 pt-8 border-t border-slate-200">
               <div className="flex items-start gap-3">
-                <ShieldCheck className="w-6 h-6 text-gray-400" />
+                <ShieldCheck className="w-6 h-6 text-slate-400" />
                 <div>
-                  <h4 className="font-semibold text-white">Botswana Framework</h4>
-                  <p className="text-sm text-gray-400">Aligned with SADC business practices</p>
+                  <h4 className="font-semibold text-slate-900">Botswana Framework</h4>
+                  <p className="text-sm text-slate-500">Aligned with SADC business practices</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
-                <FileText className="w-6 h-6 text-gray-400" />
+                <FileText className="w-6 h-6 text-slate-400" />
                 <div>
-                  <h4 className="font-semibold text-white">Practical Formats</h4>
-                  <p className="text-sm text-gray-400">PDF, Excel templates, Checklists</p>
+                  <h4 className="font-semibold text-slate-900">Practical Formats</h4>
+                  <p className="text-sm text-slate-500">PDF, Excel templates, Checklists</p>
                 </div>
               </div>
             </div>
@@ -102,51 +106,52 @@ export default async function ProductPage({
 
           {/* Sticky Unified Procurement & Implementation Panel */}
           <div className="relative space-y-6">
-            <div className="sticky top-24 corporate-card p-8 bg-[var(--color-dark-900)] border border-[var(--color-dark-600)] shadow-xl">
-              <div className="text-sm font-bold text-gray-400 uppercase tracking-widest mb-6 border-b border-[var(--color-dark-600)] pb-4">
+            <div className="sticky top-24 corporate-card p-8 shadow-lg">
+              <div className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-6 border-b border-slate-200 pb-4">
                 Procurement & Implementation
               </div>
-              
+
               {/* Primary Action: Direct Purchase */}
               <div className="mb-8">
                 <div className="flex items-end justify-between mb-4">
-                  <span className="text-sm text-gray-400 font-medium">Digital Resource</span>
-                  <span className="text-3xl font-bold text-white">P{product.price.toFixed(2)}</span>
+                  <span className="text-sm text-slate-500 font-medium">Digital Resource</span>
+                  <span className="text-3xl font-bold text-slate-900">P{product.price.toFixed(2)}</span>
                 </div>
-                
-                <Link 
+
+                <Link
                   href={`/checkout?product=${product.id}`}
-                  className="w-full inline-flex items-center justify-center gap-2 bg-white text-[var(--color-dark-900)] py-4 rounded-sm font-bold text-lg hover:bg-gray-100 transition-colors shadow-lg"
+                  className="w-full inline-flex items-center justify-center gap-2 bg-[var(--color-brand-navy)] text-white py-4 rounded-sm font-bold text-base hover:bg-[var(--color-brand-navy-light)] transition-colors shadow-md"
                 >
                   Purchase Resource
                 </Link>
-                <p className="text-xs text-center text-gray-500 mt-3">
+                <p className="text-xs text-center text-slate-400 mt-3">
                   Instant access upon administrative verification.
                 </p>
               </div>
 
               {/* Secondary Action: Corporate Training */}
-              <div className="pt-8 border-t border-[var(--color-dark-600)]">
-                <h4 className="text-sm font-bold text-emerald-500 uppercase tracking-wider mb-2">Corporate Implementation</h4>
-                <h3 className="text-lg font-heading font-bold text-white mb-3">Need this for your entire team?</h3>
-                <p className="text-sm text-gray-400 mb-6 leading-relaxed">
-                  We facilitate customized corporate workshops based on this framework. Transform your workforce rapidly with expert-led training sessions.
+              <div className="pt-6 border-t border-slate-200">
+                <p className="text-xs font-bold text-[var(--color-brand-navy)] uppercase tracking-wider mb-2">Corporate Implementation</p>
+                <h4 className="text-base font-heading font-bold text-slate-900 mb-3">Need this for your entire team?</h4>
+                <p className="text-sm text-slate-500 mb-5 leading-relaxed">
+                  We deliver customized, expert-led workshops based on this framework across your organization.
                 </p>
-                <Link 
+                <Link
                   href="/contact"
-                  className="w-full inline-flex items-center justify-center gap-2 bg-transparent border border-gray-500 text-gray-300 py-3 rounded-sm font-semibold hover:border-emerald-500 hover:text-emerald-400 transition-colors"
+                  className="w-full inline-flex items-center justify-center gap-2 bg-transparent border border-slate-300 text-slate-700 py-3 rounded-sm font-semibold text-sm hover:border-[var(--color-brand-navy)] hover:text-[var(--color-brand-navy)] transition-colors"
                 >
                   Request Corporate Training Proposal
+                  <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
               </div>
 
               {/* Trust Signals */}
-              <div className="space-y-4 pt-8 mt-8 border-t border-[var(--color-dark-600)]">
+              <div className="space-y-4 pt-6 mt-6 border-t border-slate-200">
                 <div className="flex items-start gap-3">
-                  <ShieldCheck className="w-5 h-5 text-gray-500 shrink-0" />
+                  <ShieldCheck className="w-5 h-5 text-slate-400 shrink-0" />
                   <div>
-                    <h4 className="text-sm font-semibold text-gray-300">Secure Transaction</h4>
-                    <p className="text-xs text-gray-500 mt-1">Verified offline payments via FNB or Orange Money.</p>
+                    <h4 className="text-sm font-semibold text-slate-700">Secure Transaction</h4>
+                    <p className="text-xs text-slate-400 mt-0.5">Verified via FNB or Orange Money.</p>
                   </div>
                 </div>
               </div>
