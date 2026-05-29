@@ -101,7 +101,7 @@ export default async function ProductPage({
           </div>
 
           {/* Sticky Procurement Panel */}
-          <div className="relative">
+          <div className="relative space-y-6">
             <div className="sticky top-24 corporate-card p-8">
               <div className="text-sm font-bold text-gray-400 uppercase tracking-widest mb-2">
                 Procurement
@@ -130,6 +130,20 @@ export default async function ProductPage({
                   </div>
                 </div>
               </div>
+            </div>
+
+            {/* B2B Lead Gen Panel */}
+            <div className="corporate-card p-8 bg-[var(--color-dark-800)] border-l-4 border-l-emerald-500">
+              <h3 className="text-xl font-heading font-bold text-white mb-3">Need this for your entire team?</h3>
+              <p className="text-sm text-gray-400 mb-6 leading-relaxed">
+                We facilitate customized corporate workshops based on this framework. Transform your workforce rapidly with expert-led training sessions.
+              </p>
+              <Link 
+                href="/contact"
+                className="w-full inline-flex items-center justify-center gap-2 bg-transparent border border-emerald-500/50 text-white py-3.5 rounded-sm font-semibold hover:bg-emerald-500/10 transition-colors"
+              >
+                Request Training Proposal
+              </Link>
             </div>
           </div>
         </div>
