@@ -1,4 +1,5 @@
 import { redirect } from "next/navigation";
+import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
 
 export default async function AdminLayout({
@@ -34,16 +35,13 @@ export default async function AdminLayout({
         <h2 className="font-heading font-bold text-xl text-[var(--color-brand-500)] mb-8">
           Fez Admin
         </h2>
-        <nav className="space-y-2">
-          <div className="px-4 py-2 bg-[var(--foreground)]/5 text-[var(--foreground)] rounded-lg font-medium text-sm">
-            Pending Orders
-          </div>
-          <div className="px-4 py-2 text-[var(--foreground)]/50 hover:text-[var(--foreground)] rounded-lg font-medium text-sm cursor-pointer transition-colors">
-            Order History
-          </div>
-          <div className="px-4 py-2 text-[var(--foreground)]/50 hover:text-[var(--foreground)] rounded-lg font-medium text-sm cursor-pointer transition-colors">
-            Course Catalog
-          </div>
+        <nav className="space-y-2 flex flex-col">
+          <Link href="/admin" className="px-4 py-2 hover:bg-[var(--foreground)]/5 text-[var(--foreground)]/70 hover:text-[var(--foreground)] rounded-lg font-medium text-sm transition-colors">
+            Order Management
+          </Link>
+          <Link href="/admin/leads" className="px-4 py-2 hover:bg-[var(--foreground)]/5 text-[var(--foreground)]/70 hover:text-[var(--foreground)] rounded-lg font-medium text-sm transition-colors">
+            Corporate Leads
+          </Link>
         </nav>
       </aside>
 
