@@ -170,6 +170,35 @@ p {
   );
 }
 
+/* Force all text elements inside hero to white,
+   overriding the global h1/h2/p color rules */
+.hero-content h1,
+.hero-content h2,
+.hero-content h3,
+.hero-content p,
+.hero-content span {
+  color: inherit;
+}
+
+/* Text-shadow for maximum legibility over any background */
+.hero-headline {
+  text-shadow:
+    0 2px 4px rgba(0,0,0,0.5),
+    0 4px 16px rgba(0,0,0,0.4),
+    0 8px 32px rgba(0,0,0,0.3);
+}
+
+/* Left-side backing panel — creates a dark column behind headline text
+   without touching image brightness */
+.hero-panel {
+  background: linear-gradient(
+    to right,
+    rgba(8,11,16,0.88) 0%,
+    rgba(8,11,16,0.75) 50%,
+    rgba(8,11,16,0.0) 100%
+  );
+}
+
 /* ============================================
    INDUSTRY CARD HOVER STATE
    ============================================ */

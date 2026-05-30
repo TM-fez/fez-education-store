@@ -91,51 +91,95 @@ export default function Home() {
       {/* ══════════════════════════════════════════════════════
           SECTION 1 — EXECUTIVE HERO
       ══════════════════════════════════════════════════════ */}
-      <section className="relative min-h-[90vh] flex flex-col justify-center border-b border-slate-300 overflow-hidden">
+      <section className="relative min-h-[92vh] flex flex-col justify-center border-b border-slate-800 overflow-hidden">
         <HeroCarousel />
+        {/* Global top+bottom vignette */}
         <div className="hero-overlay absolute inset-0 z-[1]" />
+        {/* Left-side backing panel: darkens ONLY the text column */}
+        <div className="hero-panel absolute inset-0 z-[2]" />
 
-        <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10 w-full pt-20">
-          <div className="max-w-4xl">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-sm border border-white/20 bg-white/10 backdrop-blur-sm text-sm font-medium mb-8 text-gray-200 animate-in fade-in slide-in-from-bottom-4 duration-700">
-              <span className="flex h-2 w-2 bg-emerald-400 rounded-full" />
-              <span>Botswana&apos;s Trusted Workforce Development Partner</span>
+        <div className="hero-content mx-auto max-w-7xl px-6 lg:px-8 relative z-10 w-full pt-24 pb-12 text-white">
+          <div className="max-w-3xl">
+
+            {/* Eyebrow badge */}
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-sm border border-white/25 bg-white/10 backdrop-blur-sm text-sm font-semibold mb-10 text-gray-100 animate-in fade-in slide-in-from-bottom-4 duration-700">
+              <span className="flex h-2 w-2 bg-emerald-400 rounded-full animate-pulse" />
+              <span>Botswana&apos;s Workforce Development Partner</span>
             </div>
 
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-heading font-bold tracking-tight text-white leading-[1.08] mb-6 animate-in fade-in slide-in-from-bottom-6 duration-700 delay-150">
-              Improve Workforce<br />
-              <span className="text-emerald-400">Performance.</span>
+            {/* ── HEADLINE ── outcome-first, three distinct lines ── */}
+            <h1 className="hero-headline text-5xl md:text-6xl lg:text-[5rem] font-heading font-bold tracking-tight leading-[1.06] mb-8 animate-in fade-in slide-in-from-bottom-6 duration-700 delay-150" style={{ color: '#ffffff' }}>
+              Reduce Stock Loss.<br />
+              Improve Service.<br />
+              <span style={{ color: '#34d399' }}>Build Stronger Leaders.</span>
             </h1>
 
-            <p className="text-lg md:text-xl text-gray-300 mb-10 leading-relaxed max-w-2xl animate-in fade-in slide-in-from-bottom-8 duration-700 delay-300">
-              We help organizations across Botswana solve critical people performance challenges — from stock loss and customer service to leadership effectiveness and operational excellence.
+            {/* Sub-headline — outcome positioning */}
+            <p className="hero-headline text-lg md:text-xl leading-relaxed mb-4 max-w-xl animate-in fade-in slide-in-from-bottom-8 duration-700 delay-300" style={{ color: '#cbd5e1' }}>
+              Corporate training programs and practical implementation resources — engineered for measurable workforce performance improvement across Botswana.
             </p>
 
-            <div className="flex flex-col sm:flex-row items-start gap-4 animate-in fade-in slide-in-from-bottom-10 duration-700 delay-500">
-              <Link href="/contact" className="btn-primary shadow-lg">
-                Request Training Proposal
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-              <Link href="#solutions" className="btn-secondary !border-white/50 !text-white hover:!bg-white/10">
-                Explore Solutions
-              </Link>
+            {/* ── CREDIBILITY STATS — above the fold ── */}
+            <div className="flex flex-wrap gap-x-6 gap-y-2 mb-10 animate-in fade-in duration-700 delay-400">
+              {[
+                "50+ organisations trained",
+                "9 workforce capability areas",
+                "7 industries supported",
+                "Botswana-based delivery",
+              ].map((stat) => (
+                <span key={stat} className="text-sm font-medium flex items-center gap-2" style={{ color: '#94a3b8' }}>
+                  <span className="text-emerald-400 font-bold">✓</span>
+                  {stat}
+                </span>
+              ))}
             </div>
 
-            {/* Trust Bar */}
-            <div className="mt-20 pt-8 border-t border-white/20 w-full animate-in fade-in duration-1000 delay-700">
-              <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-4">Industries Served</p>
-              <div className="flex flex-wrap gap-4 md:gap-8">
-                {["Retail", "Hospitality", "Logistics", "Administration", "Financial Services", "Public Sector", "Mining"].map((ind) => (
-                  <span key={ind} className="text-gray-300 font-medium text-sm flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400/60" />
-                    {ind}
-                  </span>
-                ))}
-              </div>
+            {/* ── DUAL-REVENUE CTAs ── clearly differentiated paths ── */}
+            <div className="flex flex-col sm:flex-row items-start gap-4 animate-in fade-in slide-in-from-bottom-10 duration-700 delay-500">
+
+              {/* PRIMARY: Corporate Training */}
+              <a
+                href="/contact"
+                className="group inline-flex items-center gap-3 px-7 py-4 rounded-sm font-bold text-base shadow-lg transition-all duration-200 hover:scale-[1.02]"
+                style={{ backgroundColor: '#1e3a5f', color: '#ffffff', boxShadow: '0 4px 20px rgba(30,58,95,0.5)' }}
+                onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#274d7a')}
+                onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#1e3a5f')}
+              >
+                <svg className="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                Train My Team
+              </a>
+
+              {/* SECONDARY: Resource Store */}
+              <a
+                href="/store"
+                className="group inline-flex items-center gap-3 px-7 py-4 rounded-sm font-bold text-base transition-all duration-200 hover:scale-[1.02] border-2"
+                style={{ backgroundColor: '#047857', color: '#ffffff', borderColor: '#059669', boxShadow: '0 4px 20px rgba(4,120,87,0.4)' }}
+                onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#059669')}
+                onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#047857')}
+              >
+                <svg className="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg>
+                Browse Resources
+              </a>
+            </div>
+
+          </div>
+        </div>
+
+        {/* Bottom-left: industries served — low visual priority */}
+        <div className="hero-content absolute bottom-8 left-0 right-0 z-10">
+          <div className="mx-auto max-w-7xl px-6 lg:px-8">
+            <div className="flex flex-wrap gap-x-6 gap-y-2">
+              {["Retail", "Hospitality", "Logistics", "Administration", "Financial Services", "Public Sector", "Mining"].map((ind) => (
+                <span key={ind} className="text-xs font-medium flex items-center gap-1.5" style={{ color: '#64748b' }}>
+                  <span className="w-1 h-1 rounded-full bg-emerald-500/60 inline-block" />
+                  {ind}
+                </span>
+              ))}
             </div>
           </div>
         </div>
       </section>
+
 
       {/* ══════════════════════════════════════════════════════
           SECTION 2 + 3 — CHOOSE YOUR INDUSTRY & THE REALITY
