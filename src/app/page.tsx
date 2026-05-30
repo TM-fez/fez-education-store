@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { ArrowRight, ChevronDown, ChevronUp, CheckCircle2, TrendingDown, AlertTriangle, BarChart3, Users, Shield, Zap, Building2, ShoppingCart, Truck, HeadphonesIcon, Briefcase, Landmark, HardHat, BadgeDollarSign } from "lucide-react";
+import { ArrowRight, CheckCircle2, TrendingDown, AlertTriangle, BarChart3, Users, Shield, Zap, Building2, ShoppingCart, Truck, HeadphonesIcon, Briefcase, Landmark, HardHat, BadgeDollarSign } from "lucide-react";
 import { HeroCarousel } from "@/components/home/hero-carousel";
 import { products } from "@/lib/data";
 import Image from "next/image";
@@ -25,7 +25,9 @@ const CAPABILITIES = [
   {
     id: "leadership",
     title: "Leadership & Management",
-    icon: "🏛️",
+    subtitle: "Transform managers into leaders who drive accountability and results.",
+    image: "/images/cap_leadership_bg.png",
+    accentColor: "#1e3a5f",
     challenges: ["Poor delegation and micromanagement", "Low team accountability", "Weak conflict resolution", "Inability to motivate staff"],
     training: ["Leadership Development Workshop", "Management Essentials Program", "Team Building Facilitation"],
     resources: ["Leadership Toolkit & Workbook", "Management Essentials Guide"],
@@ -34,7 +36,9 @@ const CAPABILITIES = [
   {
     id: "customer-service",
     title: "Customer Service Excellence",
-    icon: "🤝",
+    subtitle: "Turn frontline staff into brand ambassadors who protect and grow revenue.",
+    image: "/images/cap_customer_service_bg.png",
+    accentColor: "#047857",
     challenges: ["Rising complaint volumes", "Inconsistent service quality", "Weak complaint resolution", "Poor brand perception"],
     training: ["Customer Service Excellence Workshop", "Customer Relations Management Program"],
     resources: ["Customer Service Training Manual", "CRM Implementation Guide"],
@@ -43,7 +47,9 @@ const CAPABILITIES = [
   {
     id: "operations",
     title: "Operational Performance",
-    icon: "⚙️",
+    subtitle: "Close operational gaps that drain profitability and compromise compliance.",
+    image: "/images/cap_operations_bg.png",
+    accentColor: "#92400e",
     challenges: ["Uncontrolled stock shrinkage", "Weak QA processes", "OHS non-compliance", "Process inefficiencies"],
     training: ["Stock Loss & Shrinkage Mitigation", "Quality Assurance Fundamentals", "Occupational Health & Safety"],
     resources: ["Stock Loss Audit Toolkit", "Quality Assurance Manual"],
@@ -52,7 +58,9 @@ const CAPABILITIES = [
   {
     id: "communication",
     title: "Business Communication",
-    icon: "💬",
+    subtitle: "Build teams that communicate clearly, professionally, and with strategic intent.",
+    image: "/images/cap_communication_bg.png",
+    accentColor: "#4338ca",
     challenges: ["Poor written communication quality", "Ineffective meetings", "Cross-department misalignment", "Unclear reporting chains"],
     training: ["Business Communication Workshop", "Workplace Etiquette & Professionalism", "Critical Thinking for Supervisors"],
     resources: ["Business Communication Workbook", "Workplace Etiquette Handbook"],
@@ -257,103 +265,136 @@ export default function Home() {
       </section>
 
       {/* ══════════════════════════════════════════════════════
-          SECTION 5 — CAPABILITY AREAS (Accordion)
+          SECTION 5 — CAPABILITY AREAS (Immersive Split Panel)
       ══════════════════════════════════════════════════════ */}
-      <section className="py-24 section-white border-b border-slate-200">
+      <section className="py-24 section-white border-b border-slate-200" id="capabilities">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="max-w-3xl mb-14">
             <p className="text-sm font-bold text-[var(--color-brand-navy)] tracking-widest uppercase mb-3">Training Capability Areas</p>
             <h2 className="text-3xl md:text-4xl font-heading font-bold text-slate-900 mb-4">
-              Targeted solutions for every performance gap.
+              Select a capability to explore solutions.
             </h2>
             <p className="text-slate-600 text-lg">
-              Each capability area connects real workplace challenges to specific training solutions, practical resources, and measurable business outcomes.
+              Each capability area connects real workplace challenges to targeted training solutions and measurable outcomes.
             </p>
           </div>
 
-          <div className="space-y-3 max-w-4xl">
+          {/* Capability Selector Tabs */}
+          <div className="flex flex-wrap gap-3 mb-10">
             {CAPABILITIES.map((cap) => {
-              const isOpen = activeCapability === cap.id;
+              const isActive = activeCapability === cap.id;
               return (
-                <div key={cap.id} className="corporate-card overflow-hidden">
-                  <button
-                    onClick={() => setActiveCapability(isOpen ? null : cap.id)}
-                    className="capability-header w-full flex items-center justify-between p-6 text-left"
-                  >
-                    <div className="flex items-center gap-4">
-                      <span className="text-2xl">{cap.icon}</span>
-                      <span className="text-lg font-heading font-bold text-slate-900">{cap.title}</span>
-                    </div>
-                    {isOpen ? <ChevronUp className="w-5 h-5 text-[var(--color-brand-navy)] shrink-0" /> : <ChevronDown className="w-5 h-5 text-slate-400 shrink-0" />}
-                  </button>
-
-                  {isOpen && (
-                    <div className="border-t border-slate-100 p-6 animate-in fade-in slide-in-from-top-2 duration-300">
-                      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                        {/* Challenges */}
-                        <div>
-                          <p className="text-xs font-bold text-amber-600 uppercase tracking-widest mb-3">Challenges</p>
-                          <ul className="space-y-2">
-                            {cap.challenges.map((c) => (
-                              <li key={c} className="text-sm text-slate-600 flex items-start gap-2">
-                                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-amber-400 shrink-0" />
-                                {c}
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                        {/* Training */}
-                        <div>
-                          <p className="text-xs font-bold text-[var(--color-brand-navy)] uppercase tracking-widest mb-3">Training Programs</p>
-                          <ul className="space-y-2">
-                            {cap.training.map((t) => (
-                              <li key={t} className="text-sm text-slate-600 flex items-start gap-2">
-                                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[var(--color-brand-navy)] shrink-0" />
-                                {t}
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                        {/* Resources */}
-                        <div>
-                          <p className="text-xs font-bold text-emerald-700 uppercase tracking-widest mb-3">Implementation Resources</p>
-                          <ul className="space-y-2">
-                            {cap.resources.map((r) => (
-                              <li key={r} className="text-sm text-slate-600 flex items-start gap-2">
-                                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0" />
-                                {r}
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                        {/* Outcomes */}
-                        <div>
-                          <p className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-3">Business Outcomes</p>
-                          <ul className="space-y-2">
-                            {cap.outcomes.map((o) => (
-                              <li key={o} className="text-sm text-slate-700 font-medium flex items-start gap-2">
-                                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                                {o}
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      </div>
-                      <div className="mt-6 pt-6 border-t border-slate-100 flex flex-wrap gap-3">
-                        <Link href="/contact" className="btn-primary !py-2.5 !px-5 !text-sm">
-                          Request Training Proposal
-                          <ArrowRight className="w-3.5 h-3.5" />
-                        </Link>
-                        <Link href="/store" className="btn-secondary !py-2.5 !px-5 !text-sm">
-                          Browse Resources
-                        </Link>
-                      </div>
-                    </div>
-                  )}
-                </div>
+                <button
+                  key={cap.id}
+                  onClick={() => setActiveCapability(isActive ? null : cap.id)}
+                  style={isActive ? { backgroundColor: cap.accentColor, borderColor: cap.accentColor } : {}}
+                  className={`px-5 py-3 rounded-sm text-sm font-semibold border transition-all duration-200 ${
+                    isActive
+                      ? "text-white shadow-md"
+                      : "bg-white border-slate-300 text-slate-700 hover:border-slate-500"
+                  }`}
+                >
+                  {cap.title}
+                </button>
               );
             })}
           </div>
+
+          {/* Immersive Panel — shown when a capability is selected */}
+          {activeCapability && (() => {
+            const cap = CAPABILITIES.find(c => c.id === activeCapability);
+            if (!cap) return null;
+            return (
+              <div className="animate-in fade-in duration-400 grid lg:grid-cols-2 gap-0 rounded-sm overflow-hidden shadow-xl border border-slate-200">
+                {/* LEFT: Image Panel */}
+                <div className="relative min-h-[400px] lg:min-h-[500px]">
+                  <Image
+                    src={cap.image}
+                    alt={cap.title}
+                    fill
+                    className="object-cover transition-opacity duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-r from-slate-950/70 via-slate-950/40 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent" />
+                  <div className="absolute bottom-0 left-0 p-8">
+                    <p className="text-xs font-bold text-emerald-400 uppercase tracking-widest mb-2">Capability Area</p>
+                    <h3 className="text-2xl md:text-3xl font-heading font-bold text-white mb-3">{cap.title}</h3>
+                    <p className="text-gray-300 text-sm leading-relaxed max-w-xs">{cap.subtitle}</p>
+                  </div>
+                </div>
+
+                {/* RIGHT: Content Panel */}
+                <div className="bg-white p-8 lg:p-10 flex flex-col gap-6">
+                  <div className="grid grid-cols-2 gap-6">
+                    {/* Challenges */}
+                    <div>
+                      <p className="text-xs font-bold text-amber-600 uppercase tracking-widest mb-3 flex items-center gap-1.5">
+                        <AlertTriangle className="w-3.5 h-3.5" /> Challenges
+                      </p>
+                      <ul className="space-y-2">
+                        {cap.challenges.map((c) => (
+                          <li key={c} className="text-sm text-slate-600 flex items-start gap-2">
+                            <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-amber-400 shrink-0" />
+                            {c}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    {/* Outcomes */}
+                    <div>
+                      <p className="text-xs font-bold text-emerald-700 uppercase tracking-widest mb-3 flex items-center gap-1.5">
+                        <CheckCircle2 className="w-3.5 h-3.5" /> Outcomes
+                      </p>
+                      <ul className="space-y-2">
+                        {cap.outcomes.map((o) => (
+                          <li key={o} className="text-sm text-slate-700 font-medium flex items-start gap-2">
+                            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5" />
+                            {o}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+
+                  {/* Training & Resources */}
+                  <div className="pt-5 border-t border-slate-100 grid grid-cols-2 gap-6">
+                    <div>
+                      <p className="text-xs font-bold text-[var(--color-brand-navy)] uppercase tracking-widest mb-3">Training Programs</p>
+                      <ul className="space-y-1.5">
+                        {cap.training.map((t) => (
+                          <li key={t} className="text-sm text-slate-600 flex items-start gap-2">
+                            <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[var(--color-brand-navy)] shrink-0" />
+                            {t}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div>
+                      <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">Resources</p>
+                      <ul className="space-y-1.5">
+                        {cap.resources.map((r) => (
+                          <li key={r} className="text-sm text-slate-500 flex items-start gap-2">
+                            <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-slate-300 shrink-0" />
+                            {r}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+
+                  {/* CTAs */}
+                  <div className="pt-5 border-t border-slate-100 flex flex-wrap gap-3 mt-auto">
+                    <Link href="/contact" className="btn-primary !py-2.5 !px-5 !text-sm">
+                      Request Training Proposal <ArrowRight className="w-3.5 h-3.5" />
+                    </Link>
+                    <Link href="/store" className="btn-secondary !py-2.5 !px-5 !text-sm">
+                      Browse Resources
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            );
+          })()}
         </div>
       </section>
 
@@ -387,7 +428,7 @@ export default function Home() {
       </section>
 
       {/* ══════════════════════════════════════════════════════
-          SECTION 7 — BUSINESS OUTCOMES
+          SECTION 7 — BUSINESS OUTCOMES (Visual KPI Cards)
       ══════════════════════════════════════════════════════ */}
       <section className="py-24 section-white border-b border-slate-200">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -397,21 +438,107 @@ export default function Home() {
               We measure success by your business results.
             </h2>
             <p className="text-slate-600 text-lg">
-              Our interventions are designed to produce quantifiable improvements in operational performance, customer experience, and people management.
+              Our interventions produce quantifiable improvements across every level of organizational performance.
             </p>
           </div>
 
+          {/* Visual KPI Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
-            {OUTCOMES.map((o) => {
-              const Icon = o.icon;
-              return (
-                <div key={o.stat} className="outcome-panel">
-                  <Icon className="w-6 h-6 text-[var(--color-brand-navy)] mb-4" />
-                  <p className="text-3xl font-heading font-bold text-slate-900 mb-2">{o.stat}</p>
-                  <p className="text-sm text-slate-600 leading-relaxed">{o.label}</p>
+            {/* KPI 1 */}
+            <div className="bg-white rounded-sm border border-slate-200 p-6 shadow-sm hover:shadow-md transition-shadow">
+              <div className="flex items-start justify-between mb-4">
+                <div className="p-2.5 bg-red-50 rounded-sm">
+                  <TrendingDown className="w-6 h-6 text-red-600" />
                 </div>
-              );
-            })}
+                <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">Stock Control</span>
+              </div>
+              <p className="text-5xl font-heading font-bold text-slate-900 mb-1">40<span className="text-3xl text-red-500">%↓</span></p>
+              <p className="text-sm font-semibold text-slate-700 mb-2">Reduction in Stock Loss</p>
+              <p className="text-xs text-slate-400 leading-relaxed">Average result reported by retail clients following Fez shrinkage mitigation interventions.</p>
+              <div className="mt-4 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+                <div className="h-full bg-red-400 rounded-full" style={{ width: "40%" }} />
+              </div>
+            </div>
+
+            {/* KPI 2 */}
+            <div className="bg-white rounded-sm border border-slate-200 p-6 shadow-sm hover:shadow-md transition-shadow">
+              <div className="flex items-start justify-between mb-4">
+                <div className="p-2.5 bg-emerald-50 rounded-sm">
+                  <BarChart3 className="w-6 h-6 text-emerald-600" />
+                </div>
+                <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">Customer Experience</span>
+              </div>
+              <p className="text-5xl font-heading font-bold text-slate-900 mb-1">60<span className="text-3xl text-emerald-500">↑</span></p>
+              <p className="text-sm font-semibold text-slate-700 mb-2">Days to NPS Improvement</p>
+              <p className="text-xs text-slate-400 leading-relaxed">Measurable improvement in customer satisfaction scores within 60 days of service training.</p>
+              <div className="mt-4 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+                <div className="h-full bg-emerald-400 rounded-full" style={{ width: "75%" }} />
+              </div>
+            </div>
+
+            {/* KPI 3 */}
+            <div className="bg-white rounded-sm border border-slate-200 p-6 shadow-sm hover:shadow-md transition-shadow">
+              <div className="flex items-start justify-between mb-4">
+                <div className="p-2.5 bg-blue-50 rounded-sm">
+                  <Users className="w-6 h-6 text-blue-600" />
+                </div>
+                <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">Leadership</span>
+              </div>
+              <p className="text-5xl font-heading font-bold text-slate-900 mb-1">3<span className="text-3xl text-blue-500">×</span></p>
+              <p className="text-sm font-semibold text-slate-700 mb-2">Accountability Improvement</p>
+              <p className="text-xs text-slate-400 leading-relaxed">Leadership accountability improvement in teams following management and delegation training.</p>
+              <div className="mt-4 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+                <div className="h-full bg-blue-400 rounded-full" style={{ width: "85%" }} />
+              </div>
+            </div>
+
+            {/* KPI 4 */}
+            <div className="bg-white rounded-sm border border-slate-200 p-6 shadow-sm hover:shadow-md transition-shadow">
+              <div className="flex items-start justify-between mb-4">
+                <div className="p-2.5 bg-amber-50 rounded-sm">
+                  <Shield className="w-6 h-6 text-amber-600" />
+                </div>
+                <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">Safety</span>
+              </div>
+              <p className="text-5xl font-heading font-bold text-slate-900 mb-1">OHS<span className="text-3xl text-amber-500">↓</span></p>
+              <p className="text-sm font-semibold text-slate-700 mb-2">Incident Rate Reduction</p>
+              <p className="text-xs text-slate-400 leading-relaxed">Reduction in workplace safety incidents in logistics clients following OHS training programs.</p>
+              <div className="mt-4 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+                <div className="h-full bg-amber-400 rounded-full" style={{ width: "60%" }} />
+              </div>
+            </div>
+
+            {/* KPI 5 */}
+            <div className="bg-white rounded-sm border border-slate-200 p-6 shadow-sm hover:shadow-md transition-shadow">
+              <div className="flex items-start justify-between mb-4">
+                <div className="p-2.5 bg-purple-50 rounded-sm">
+                  <Zap className="w-6 h-6 text-purple-600" />
+                </div>
+                <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">Productivity</span>
+              </div>
+              <p className="text-5xl font-heading font-bold text-slate-900 mb-1">25<span className="text-3xl text-purple-500">%↑</span></p>
+              <p className="text-sm font-semibold text-slate-700 mb-2">Output Improvement</p>
+              <p className="text-xs text-slate-400 leading-relaxed">Operational productivity gains achieved through process improvement and supervisory training.</p>
+              <div className="mt-4 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+                <div className="h-full bg-purple-400 rounded-full" style={{ width: "55%" }} />
+              </div>
+            </div>
+
+            {/* KPI 6 */}
+            <div className="bg-white rounded-sm border border-slate-200 p-6 shadow-sm hover:shadow-md transition-shadow">
+              <div className="flex items-start justify-between mb-4">
+                <div className="p-2.5 bg-teal-50 rounded-sm">
+                  <Building2 className="w-6 h-6 text-teal-600" />
+                </div>
+                <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">Retention</span>
+              </div>
+              <p className="text-5xl font-heading font-bold text-slate-900 mb-1">30<span className="text-3xl text-teal-500">%↑</span></p>
+              <p className="text-sm font-semibold text-slate-700 mb-2">Staff Retention Rate</p>
+              <p className="text-xs text-slate-400 leading-relaxed">Staff retention improvement in organizations that implement structured workforce development programs.</p>
+              <div className="mt-4 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+                <div className="h-full bg-teal-400 rounded-full" style={{ width: "65%" }} />
+              </div>
+            </div>
           </div>
 
           {/* Two Ways Section */}

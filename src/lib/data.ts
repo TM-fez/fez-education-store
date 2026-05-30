@@ -37,7 +37,7 @@ export const products: Product[] = [
     price: 850,
     category_id: "c1",
     is_featured: true,
-    image_url: "/images/cover_leadership_p1.png",
+    image_url: "/images/cover_leadership_new.png",
     target_audience: "Supervisors, Department Heads, and Emerging Leaders",
     key_learning_outcomes: ["Resolving workplace conflicts", "Building high-performance teams", "Driving staff accountability", "Effective delegation strategies"]
   },
@@ -65,7 +65,7 @@ export const products: Product[] = [
     price: 900,
     category_id: "c3",
     is_featured: true,
-    image_url: "/images/cover_stock_loss_p3.png",
+    image_url: "/images/cover_stock_loss_new.png",
     target_audience: "Retail Managers, Warehouse Supervisors, Operations Directors",
     key_learning_outcomes: ["Identifying shrinkage vulnerability points", "Implementing robust inventory controls", "Staff training for loss prevention", "Auditing and compliance"]
   },
